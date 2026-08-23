@@ -1,0 +1,20 @@
+{
+  "secrets": {},
+  "outputLocations": {},
+  "outputSettings": {
+    "evernote": {
+      "folder": "Evernote",
+      "attachments": {
+        "mode": "subfolder",
+        "path": "assets"
+      },
+      "duplicates": "update",
+      "saveSourceId": true
+    }
+  },
+  "onenoteAttachments": {},
+  "sourceFolders": {
+    "evernote": "/Users/yury_ahanouski/Downloads"
+  },
+  "lastSourceFolder": "/Users/yury_ahanouski/Downloads"
+}

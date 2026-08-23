@@ -63,7 +63,7 @@ LIMIT 10 OFFSET 5 -- 10 rows from 6th row. Offset like skip
 - `DISTINCT` - returns unique values
 - `OFFSET` can work without limit. If you need to skip some amount of the rows
 
-2. #### CREATE table
+1. #### CREATE table
 
 - `PRIMARY KEY` constraint can be used to uniquely identify the row.
 - `UNIQUE` columns have a different value for every row.
@@ -91,7 +91,7 @@ CREATE TABLE student (
 
 **[⬆ Back to Top](#table-of-contents)**
 
-3. #### INSERT data to tables
+1. #### INSERT data to tables
 
 ```sql
   -- Insert into columns in order:
@@ -104,13 +104,13 @@ VALUES ('value1', 'value2');
 ON CONFLICT ("id") DO
 UPDATE
 SET "value1" = 'value',
-	  'value2' = 'value'
+   'value2' = 'value'
 RETURNING *
 ```
 
 **[⬆ Back to Top](#table-of-contents)**
 
-4. #### ALTER TABLE
+1. #### ALTER TABLE
 
 Is used to modify the columns of an existing table
 
@@ -125,7 +125,7 @@ All rows get `NULL (∅)` after that. It represents missing or unknown data
 
 **[⬆ Back to Top](#table-of-contents)**
 
-5. #### UPDATE
+1. #### UPDATE
 
 Is used to edit `records` (rows) in a table. It includes a `SET` clause that indicates the column to edit and a `WHERE` clause for specifying the record(s).
 
@@ -137,12 +137,12 @@ WHERE some_column = some_value;
 
 **[⬆ Back to Top](#table-of-contents)**
 
-6. #### IS NULL
+1. #### IS NULL
 
 Is condition that return true/false
 **[⬆ Back to Top](#table-of-contents)**
 
-7. #### WHERE
+1. #### WHERE
 
 Clause to select rows.
 `WHERE twitter_handle IS [NOT] NULL`
@@ -172,7 +172,7 @@ Another info
 
 **[⬆ Back to Top](#table-of-contents)**
 
-8. #### Build-in Functions
+1. #### Build-in Functions
 
 - `ROUND(price, 0)` second parameter - integer, that specify decimals
 - `LENGTH(text)`
@@ -183,7 +183,7 @@ Another info
 
 **[⬆ Back to Top](#table-of-contents)**
 
-9. #### DELETE FROM
+1. #### DELETE FROM
 
 Deletes 1 or more rows where value `IS / =` `[ record ]`.
 If where is omitted all `[ record ]`s will be deleted
@@ -195,7 +195,7 @@ WHERE twitter_handle IS NULL;
 
 **[⬆ Back to Top](#table-of-contents)**
 
-10. #### Regex
+1. #### Regex
 
 `LIKE` operator can be used inside of a `WHERE` clause to match a specified pattern.
 
@@ -212,7 +212,7 @@ There is another clause like `LIKE` - `SIMILAR TO`. It can use the standard rege
 
 **[⬆ Back to Top](#table-of-contents)**
 
-11. #### CASE
+1. #### CASE
 
 `LIKE` operator can be used inside of a `WHERE` clause to match a specified pattern.
 
@@ -231,7 +231,7 @@ FROM movies;
 
 **[⬆ Back to Top](#table-of-contents)**
 
-12. #### Aggregate functions
+1. #### Aggregate functions
 
 It's the functions that aggregate output in 1 record
 
@@ -266,7 +266,7 @@ FROM hotdog;
 
 **[⬆ Back to Top](#table-of-contents)**
 
-13. #### GROUP BY
+1. #### GROUP BY
 
 `GROUP BY` is a clause that is used with aggregate functions in `SELECT` statement
 to aggregate data for every unique group by record. Comes after `WHERE`, but before `ORDER BY`
@@ -309,7 +309,7 @@ GROUP BY 1, 2;
 
 **[⬆ Back to Top](#table-of-contents)**
 
-14. #### ORDER BY
+1. #### ORDER BY
 
 ```sql
 SELECT price
@@ -319,7 +319,7 @@ GROUP BY price DESC, quantity; -- or use 1 , 2 , 3 to select corresponding colum
 
 **[⬆ Back to Top](#table-of-contents)**
 
-15. #### JOIN ON
+1. #### JOIN ON
 
 Ordinary or `INNER JOIN` on joins tables by id but if id doesn't match - it does't include that rows
 
@@ -366,7 +366,7 @@ Finally, a `FULL JOIN` simply means that rows from both tables are kept, regardl
 
 **[⬆ Back to Top](#table-of-contents)**
 
-16. #### UNION
+1. #### UNION
 
 ```sql
 SELECT *
@@ -381,7 +381,7 @@ FROM table2;
 
 **[⬆ Back to Top](#table-of-contents)**
 
-17. #### WITH
+1. #### WITH
 
 ```sql
 WITH previous_results AS (
@@ -402,7 +402,7 @@ JOIN customers
 
 **[⬆ Back to Top](#table-of-contents)**
 
-18. #### Dates
+1. #### Dates
 
 1) `DATE_TRUNC` is a feature from PostgreSQL. It returns **timestamp with time zone** type like `2023-03-01 00.00.00.` from `('month, '2023-03-04')`.
 
@@ -431,7 +431,7 @@ JOIN customers
 
 To filter: `WHERE DATE_TRUNC('month', date) = '2022-02-01'`
 
-2. `EXTRACT([TIME] FROM [record])` returns specific part of a date (double precision)
+1. `EXTRACT([TIME] FROM [record])` returns specific part of a date (double precision)
 
 - `CENTURY`
 - `YEAR`
@@ -458,7 +458,7 @@ To filter: `WHERE EXTRACT(WEEK FROM date) = 7`
 
 **[⬆ Back to Top](#table-of-contents)**
 
-19. #### Subquery
+1. #### Subquery
 
 If we want to get another value from table we can use `SELECT` in the brackets (subquery)
 
@@ -485,7 +485,7 @@ A correlated subquery works like a nested loop: the subquery only has access to 
 
 **[⬆ Back to Top](#table-of-contents)**
 
-16. #### UNION
+1. #### UNION
 
 ```sql
 SELECT DATE_TRUNC('month', date)
