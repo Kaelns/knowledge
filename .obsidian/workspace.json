@@ -11,12 +11,14 @@
             "id": "6bf1aeb661ef1f0b",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Evernote/Programming/assets/image 1.png"
+                "file": "src/Ai/AI.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "image 1"
+              "icon": "lucide-file",
+              "title": "AI"
             }
           }
         ]
@@ -78,7 +80,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 208.5
+    "width": 256.03125
   },
   "right": {
     "id": "8889a2f34ef834d3",
@@ -94,7 +96,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Evernote/Programming/assets/image 1.png",
+                "file": "src/Ai/AI.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,12 +115,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Evernote/Programming.md",
+                "file": "src/Ai/AI.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Programming"
+              "title": "Outgoing links"
             }
           },
           {
@@ -156,7 +158,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Evernote/Programming/assets/image 1.png",
+                "file": "src/Ai/AI.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -180,10 +182,11 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 278.14453125
   },
   "left-ribbon": {
     "hiddenItems": {
+      "vscode-editor:Create Code File": false,
       "obsidian-git:Open Git source control": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
@@ -191,37 +194,42 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "obsidian-importer:Import notes": false
+      "bases:Create new base": false
     }
   },
-  "active": "6bf1aeb661ef1f0b",
+  "active": "f28aa52c6fcebc24",
   "lastOpenFiles": [
-    "Evernote/Core js 2/assets/image 1.png",
+    "src/Interview/README.md",
+    "src/Interview",
+    "src/Web/Web.md",
+    "src/Ai/AI.md",
+    "src/Ai",
+    "src/Web/assets/web-structure.png",
+    "src/Web/assets/Pasted image 20261016135515.png",
+    "src/Web/assets",
+    "src/Web",
+    "Evernote/Core js 2/Core js 2.md",
+    "Untitled.base",
+    "Untitled 1.base",
+    "Untitled 2.base",
+    "Untitled 3.base",
+    "src/nodeJS/scripts/eventLoop.cjs",
     "Evernote/Programming/Programming.md",
+    "Evernote/Core js 1/Core js 1.md",
+    "src/sql/sql.md",
+    "src/nodeJS/nodejs.md",
+    "Evernote/Untitled.canvas",
+    "README.md",
+    "docs/codemie/analytics/codemie-analytics-yury-ahanouski-epam-com-60a9687c-9f58-4793-9f40-835fb0af4ccf.json",
+    "Evernote/Programming/assets/image 1.png",
+    "Evernote/Core js 2/assets/image 1.png",
     "Evernote/Programming/assets/image 3.png",
     "Evernote/Programming/assets/image 2.png",
-    "Evernote/Programming/assets/image 1.png",
     "Evernote/Programming/assets/image.png",
-    "Evernote/Core js 2/Core js 2.md",
-    "Evernote/Core js 1/Core js 1.md",
     "Evernote/Programming/assets/image 6.png",
     "Evernote/Programming/assets/image 5.png",
     "Evernote/Programming/assets/image 4.png",
-    "Evernote/Programming/assets",
-    "Evernote/Programming",
-    "Evernote/Core js 2/assets/image 6.png",
-    "Evernote/Core js 2/assets/image 5.png",
-    "Evernote/Core js 2/assets/image 4.png",
-    "Evernote/Core js 2/assets",
-    "Evernote/Core js 2",
-    "Evernote/Core js 1/assets",
-    "Evernote/Core js 1",
     "Untitled.canvas",
-    "2026-08-21.md",
-    "src/sql/sql.md",
-    "Evernote",
-    "src/nodeJS/nodejs.md",
-    "README.md"
+    "2026-08-21.md"
   ]
 }

@@ -1,0 +1,201 @@
+{
+  "meta": {
+    "generatedAt": "2026-08-23T09:31:06.045Z",
+    "rangeLabel": "all",
+    "agents": [
+      "claude"
+    ],
+    "projectFilter": "all",
+    "totals": {
+      "sessions": 1,
+      "durationMs": 140243,
+      "turns": 7,
+      "files": 3,
+      "netLines": 82,
+      "toolCallsTotal": 6,
+      "toolSuccessRate": 83.3,
+      "totalCostUSD": 0.8162421,
+      "cacheReadCostUSD": 0.0081741,
+      "pricedSessions": 1
+    },
+    "unpricedModels": [],
+    "coverage": [
+      {
+        "agentName": "claude",
+        "total": 1,
+        "priced": 1,
+        "withLog": 1
+      }
+    ],
+    "userEmail": "yury_ahanouski@epam.com",
+    "periodStart": "2026-08-23T09:28:43.377Z",
+    "periodEnd": "2026-08-23T09:31:03.620Z"
+  },
+  "sessions": [
+    {
+      "sessionId": "60a9687c-9f58-4793-9f40-835fb0af4ccf",
+      "agentName": "claude",
+      "provider": "ai-run-sso",
+      "title": "show model, context percentage with progress bar and cost",
+      "project": "/Users/yury_ahanouski/Learning/knowledge",
+      "branch": "main",
+      "startTime": 1787477323377,
+      "durationMs": 140243,
+      "turns": 7,
+      "fileOps": 3,
+      "linesAdded": 83,
+      "linesRemoved": 1,
+      "linesModified": 0,
+      "netLines": 82,
+      "filesChanged": 2,
+      "filesWritten": 0,
+      "filesEdited": 2,
+      "toolCallsTotal": 6,
+      "toolCallsSuccess": 5,
+      "toolCallsFailure": 1,
+      "models": [
+        "claude-sonnet-4-6"
+      ],
+      "languages": [
+        "json"
+      ],
+      "tools": [
+        {
+          "toolName": "Read",
+          "totalCalls": 3,
+          "successCount": 2,
+          "failureCount": 1,
+          "successRate": 66.66666666666666
+        },
+        {
+          "toolName": "Edit",
+          "totalCalls": 2,
+          "successCount": 2,
+          "failureCount": 0,
+          "successRate": 100
+        },
+        {
+          "toolName": "Agent",
+          "totalCalls": 1,
+          "successCount": 1,
+          "failureCount": 0,
+          "successRate": 100
+        }
+      ],
+      "tokens": {
+        "input": 11,
+        "output": 7525,
+        "cacheRead": 27247,
+        "cacheCreation": 115860,
+        "cacheCreation1h": 115860,
+        "total": 150643
+      },
+      "costUSD": 0.8162421,
+      "cacheReadCostUSD": 0.0081741,
+      "perModelCost": [
+        {
+          "model": "claude-sonnet-4-6",
+          "tokens": {
+            "input": 11,
+            "output": 7525,
+            "cacheRead": 27247,
+            "cacheCreation": 115860,
+            "cacheCreation1h": 115860,
+            "total": 150643
+          },
+          "costUSD": 0.8162421,
+          "unpriced": false
+        }
+      ],
+      "hadLog": true,
+      "costSeries": [
+        {
+          "t": 1787477329271,
+          "cost": 0.264159,
+          "tokens": 43752
+        },
+        {
+          "t": 1787477332666,
+          "cost": 0.297909,
+          "tokens": 49056
+        },
+        {
+          "t": 1787477400782,
+          "cost": 0.3967638,
+          "tokens": 62231
+        },
+        {
+          "t": 1787477411245,
+          "cost": 0.4928418,
+          "tokens": 76569
+        },
+        {
+          "t": 1787477419298,
+          "cost": 0.5379924,
+          "tokens": 91171
+        },
+        {
+          "t": 1787477436552,
+          "cost": 0.5492391,
+          "tokens": 106199
+        },
+        {
+          "t": 1787477439464,
+          "cost": 0.8162421,
+          "tokens": 150643
+        }
+      ],
+      "dispatches": [
+        {
+          "kind": "command",
+          "name": "statusline",
+          "start": 1787477324481,
+          "durationMs": 0
+        },
+        {
+          "kind": "agent",
+          "name": "statusline-setup",
+          "start": 1787477329271,
+          "durationMs": 107608,
+          "costUSD": 0.2850801,
+          "tokens": {
+            "input": 7,
+            "output": 7303,
+            "cacheRead": 27247,
+            "cacheCreation": 27890,
+            "cacheCreation1h": 27890,
+            "total": 62447
+          },
+          "tools": [
+            {
+              "name": "Read",
+              "calls": 3
+            },
+            {
+              "name": "Edit",
+              "calls": 2
+            }
+          ]
+        }
+      ],
+      "skillInvocations": [],
+      "agentInvocations": [
+        {
+          "name": "statusline-setup",
+          "totalCalls": 1,
+          "successCount": 1,
+          "failureCount": 0
+        }
+      ],
+      "commandInvocations": [
+        {
+          "name": "statusline",
+          "totalCalls": 1,
+          "successCount": 1,
+          "failureCount": 0
+        }
+      ],
+      "sessionSource": "Pure chat"
+    }
+  ]
+}

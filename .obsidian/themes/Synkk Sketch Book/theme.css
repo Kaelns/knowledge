@@ -1,0 +1,1876 @@
+/*=============================================================================
+                          SYNKk SKETCH BOOK
+                          -----------------
+  Tactile Pastel Sketchbook Theme for Obsidian
+  Deep Paper Textures, Rough Notebook Sketch Styling & Clean Professional Modes
+  Designed for maximum legibility, high contrast, tactile warmth, and fun visual cards.
+=============================================================================*/
+
+/* @settings
+name: Synkk Sketch Book
+id: synkk-sketch-book
+settings:
+    -
+        id: sketch-style-mode-heading
+        title: Style & Mode
+        type: heading
+        level: 1
+    -
+        id: sketch-mode
+        title: Aesthetic Mode
+        description: Switch between organic rough notebook sketch style and a clean, crisp professional style.
+        type: class-select
+        allowEmpty: false
+        default: sketch-mode-handwritten
+        options:
+            -
+                label: "✏️ Handwritten Sketch (Wobbly borders, washi tape, marker highlights, doodle elements)"
+                value: sketch-mode-handwritten
+            -
+                label: "💼 Clean & Professional (Sharp modern lines, high-contrast typography, minimal cards)"
+                value: sketch-mode-clean
+    -
+        id: sketch-paper-heading
+        title: Paper Texture & Surface
+        type: heading
+        level: 1
+    -
+        id: sketch-paper-texture
+        title: Paper Texture Pattern
+        description: Choose the background paper texture pattern for your notebook.
+        type: class-select
+        allowEmpty: false
+        default: texture-stained
+        options:
+            -
+                label: "📜 Off-White Stained Paper (Organic tea/water stains, warm antique parchment)"
+                value: texture-stained
+            -
+                label: "📏 Lined Notebook Paper (Ruled horizontal lines with margin rule)"
+                value: texture-lined
+            -
+                label: "📐 Engineering Grid Paper (Dual-level math/graph grid)"
+                value: texture-grid
+            -
+                label: "⠸ Dotted Bullet Journal (Isometric dot grid)"
+                value: texture-dots
+            -
+                label: "📦 Warm Kraft Paper (Deep organic craft tone)"
+                value: texture-kraft
+            -
+                label: "📄 Smooth Fine Paper (Texture-free clean paper)"
+                value: texture-smooth
+    -
+        id: sketch-texture-depth
+        title: Paper Texture Depth / Visibility
+        description: Adjust how prominent the paper fibers, lines, and stains appear (0 = invisible, 1.5 = bold).
+        type: variable-number-slider
+        default: 0.8
+        min: 0.1
+        max: 1.5
+        step: 0.05
+    -
+        id: sketch-paper-edge
+        title: Notebook Margin Rule (Left red/pastel line)
+        description: Display a classic notebook margin line on the left side of notes.
+        type: class-toggle
+        default: true
+    -
+        id: sketch-palette-heading
+        title: Pastel Color Palette & Accents
+        type: heading
+        level: 1
+    -
+        id: sketch-accent-preset
+        title: Pastel Accent Preset
+        description: Select your preferred pastel theme accent.
+        type: class-select
+        allowEmpty: false
+        default: preset-sage
+        options:
+            -
+                label: "🍵 Pastel Matcha & Mint (Serene herbal green)"
+                value: preset-sage
+            -
+                label: "🍑 Pastel Peach & Apricot (Warm sunny peach)"
+                value: preset-peach
+            -
+                label: "🍓 Pastel Strawberry & Rose (Sweet berry cream)"
+                value: preset-rose
+            -
+                label: "🪻 Pastel Taro & Lavender (Dreamy soft lilac)"
+                value: preset-lavender
+            -
+                label: "🫧 Pastel Sky & Periwinkle (Calm ocean soda)"
+                value: preset-sky
+            -
+                label: "🧈 Pastel Honey & Butter (Warm mellow gold)"
+                value: preset-butter
+            -
+                label: "🪸 Pastel Coral & Melon (Vibrant warm melon)"
+                value: preset-coral
+    -
+        id: sketch-custom-accent
+        title: Custom Accent Color Override
+        description: If set, overrides the preset with this custom hex color.
+        type: variable-color
+        format: hex
+        default: ""
+    -
+        id: sketch-elements-heading
+        title: Visual Cards & Stationery Elements
+        type: heading
+        level: 1
+    -
+        id: sketch-washi-tape
+        title: Washi Tape on Callouts & Cards
+        description: Show translucent pastel washi tape pins on callouts, sticky notes, and cards.
+        type: class-toggle
+        default: true
+    -
+        id: sketch-polaroid-frames
+        title: Polaroid Frames on Images
+        description: Display embedded images inside tactile polaroid photo cards with washi tape clips.
+        type: class-toggle
+        default: true
+    -
+        id: sketch-wobbly-borders
+        title: Hand-drawn Organic Borders
+        description: Apply organic wobbly border curves to cards, boxes, and buttons in sketch mode.
+        type: class-toggle
+        default: true
+    -
+        id: sketch-highlighter-style
+        title: Highlighter Marker Style
+        description: Style for highlighted ==text==.
+        type: class-select
+        allowEmpty: false
+        default: hl-marker
+        options:
+            -
+                label: "🖊️ Real Chisel Marker (Angled rough highlighter pen)"
+                value: hl-marker
+            -
+                label: "〰️ Wavy Sketch Underline"
+                value: hl-wavy
+            -
+                label: "🟨 Clean Soft Pastel Block"
+                value: hl-clean
+    -
+        id: sketch-doodle-checkboxes
+        title: Hand-Drawn Sketch Checkboxes
+        description: Custom sketchy square checkboxes with hand-drawn checkmarks and bounce animations.
+        type: class-toggle
+        default: true
+    -
+        id: sketch-typography-heading
+        title: Typography & Fonts
+        type: heading
+        level: 1
+    -
+        id: sketch-font-body-sketch
+        title: Sketch Mode Handwritten Font
+        description: Font family used in Handwritten Sketch mode.
+        type: variable-text
+        default: "'Shantell Sans', 'Patrick Hand', 'Chalkboard SE', 'Noteworthy', 'Caveat', cursive, sans-serif"
+    -
+        id: sketch-font-body-clean
+        title: Clean Mode Body Font
+        description: Font family used in Clean & Professional mode.
+        type: variable-text
+        default: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Text', sans-serif"
+    -
+        id: sketch-font-mono
+        title: Monospace / Code Font
+        description: Font family for code blocks and inline code.
+        type: variable-text
+        default: "'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, Monaco, Consolas, monospace"
+    -
+        id: sketch-font-size-base
+        title: Base Font Size
+        type: variable-number-slider
+        default: 16
+        min: 13
+        max: 22
+        step: 1
+        format: px
+    -
+        id: sketch-line-height
+        title: Line Height
+        type: variable-number-slider
+        default: 1.68
+        min: 1.3
+        max: 2.2
+        step: 0.05
+*/
+
+/* --- External Web Fonts (Loaded with instant local Mac fallbacks) --- */
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&family=Patrick+Hand&family=Caveat:wght@600;700&family=Kalam:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* =============================================================================
+   1. ROOT VARIABLES & COLOR FOUNDATIONS
+============================================================================= */
+
+:root {
+  /* Default Font Stacks */
+  --sketch-font-body-sketch: 'Shantell Sans', 'Patrick Hand', 'Chalkboard SE', 'Noteworthy', 'Caveat', cursive, sans-serif;
+  --sketch-font-body-clean: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Text', Roboto, sans-serif;
+  --sketch-font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  --sketch-font-heading-sketch: 'Patrick Hand', 'Shantell Sans', 'Kalam', 'Noteworthy', 'Chalkboard SE', cursive, sans-serif;
+  --sketch-font-heading-clean: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', sans-serif;
+
+  /* Force override Obsidian inline font variables */
+  --font-text-override: var(--sketch-font-body-sketch);
+  --font-interface-override: var(--sketch-font-body-sketch);
+
+  /* Typography metrics */
+  --sketch-font-size-base: 16px;
+  --sketch-line-height: 1.68;
+  --sketch-heading-weight: 700;
+
+  /* Texture Settings */
+  --sketch-texture-depth: 0.8;
+
+  /* Organic Wobbly Border Radii (Sketch Style) */
+  --sketch-radius-sm: 255px 15px 225px 15px/15px 225px 15px 255px;
+  --sketch-radius-md: 20px 255px 20px 25px/25px 20px 255px 20px;
+  --sketch-radius-lg: 255px 25px 225px 25px/25px 225px 25px 255px;
+  --sketch-radius-card: 255px 18px 225px 18px/18px 225px 18px 255px;
+
+  /* Clean Border Radii (Clean Style) */
+  --clean-radius-sm: 6px;
+  --clean-radius-md: 10px;
+  --clean-radius-lg: 14px;
+  --clean-radius-card: 12px;
+
+  /* Active Border Radius (defaults to sketch mode) */
+  --sketch-active-radius-sm: var(--sketch-radius-sm);
+  --sketch-active-radius-md: var(--sketch-radius-md);
+  --sketch-active-radius-lg: var(--sketch-radius-lg);
+  --sketch-active-radius-card: var(--sketch-radius-card);
+
+  /* SVG Stains & Textures */
+  --sketch-svg-stain: url("data:image/svg+xml,%3Csvg%20viewBox%3D%270%200%20800%20800%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%0A%20%20%3Cfilter%20id%3D%27teaStain%27%20x%3D%270%25%27%20y%3D%270%25%27%20width%3D%27100%25%27%20height%3D%27100%25%27%3E%0A%20%20%20%20%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.012%27%20numOctaves%3D%274%27%20result%3D%27clouds%27%20/%3E%0A%20%20%20%20%3CfeColorMatrix%20type%3D%27matrix%27%20values%3D%27%0A%20%20%20%20%20%200.84%200.08%200.04%200%200.10%0A%20%20%20%20%20%200.74%200.12%200.06%200%200.08%0A%20%20%20%20%20%200.58%200.10%200.08%200%200.05%0A%20%20%20%20%20%200%200%200%200.065%200%27%20result%3D%27tinted%27%20/%3E%0A%20%20%3C/filter%3E%0A%20%20%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23teaStain%29%27%20/%3E%0A%3C/svg%3E");
+  --sketch-svg-fiber: url("data:image/svg+xml,%3Csvg%20viewBox%3D%270%200%20400%20400%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%0A%20%20%3Cfilter%20id%3D%27fiberFilter%27%3E%0A%20%20%20%20%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.6%27%20numOctaves%3D%273%27%20stitchTiles%3D%27stitch%27%20/%3E%0A%20%20%20%20%3CfeColorMatrix%20type%3D%27matrix%27%20values%3D%27%0A%20%20%20%20%20%200.7%200%200%200%200.15%0A%20%20%20%20%20%200%200.6%200%200%200.12%0A%20%20%20%20%20%200%200%200.5%200%200.08%0A%20%20%20%20%20%200%200%200%200.04%200%27%20/%3E%0A%20%20%3C/filter%3E%0A%20%20%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23fiberFilter%29%27%20/%3E%0A%3C/svg%3E");
+  --sketch-svg-kraft: url("data:image/svg+xml,%3Csvg%20viewBox%3D%270%200%20400%20400%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%0A%20%20%3Cfilter%20id%3D%27kraft%27%3E%0A%20%20%20%20%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.4%27%20numOctaves%3D%274%27%20stitchTiles%3D%27stitch%27%20/%3E%0A%20%20%20%20%3CfeColorMatrix%20type%3D%27matrix%27%20values%3D%27%0A%20%20%20%20%20%200.7%200%200%200%200.18%0A%20%20%20%20%20%200%200.6%200%200%200.14%0A%20%20%20%20%20%200%200%200.45%200%200.09%0A%20%20%20%20%20%200%200%200%200.15%200%27%20/%3E%0A%20%20%3C/filter%3E%0A%20%20%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23kraft%29%27%20/%3E%0A%3C/svg%3E");
+  --sketch-svg-chalkboard: url("data:image/svg+xml,%3Csvg%20viewBox%3D%270%200%20400%20400%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%0A%20%20%3Cfilter%20id%3D%27chalk%27%3E%0A%20%20%20%20%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.7%27%20numOctaves%3D%273%27%20stitchTiles%3D%27stitch%27%20/%3E%0A%20%20%20%20%3CfeColorMatrix%20type%3D%27matrix%27%20values%3D%27%0A%20%20%20%20%20%201%200%200%200%200%0A%20%20%20%20%20%200%201%200%200%200%0A%20%20%20%20%20%200%200%201%200%200%0A%20%20%20%20%20%200%200%200%200.035%200%27%20/%3E%0A%20%20%3C/filter%3E%0A%20%20%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23chalk%29%27%20/%3E%0A%3C/svg%3E");
+}
+
+/* =============================================================================
+   2. LIGHT MODE: OFF-WHITE STAINED ARCHIVAL SKETCHBOOK
+============================================================================= */
+
+.theme-light {
+  /* Warm Antique Off-White Stained Canvas */
+  --sketch-bg-paper: #faf7f0;
+  --sketch-bg-paper-alt: #f5f0e3;
+  --sketch-bg-card: #ffffff;
+  --sketch-bg-card-alt: #fbf7ef;
+  --sketch-bg-sidebar: #f3ede2;
+  --sketch-bg-subtle: #eee6d6;
+  
+  /* Text: Rich Walnut Ink with Ultra-High Contrast (> 15:1) */
+  --sketch-ink-main: #1d1a18;
+  --sketch-ink-muted: #534c46;
+  --sketch-ink-faint: #857b72;
+  --sketch-border: rgba(90, 75, 60, 0.16);
+  --sketch-border-strong: rgba(70, 55, 40, 0.32);
+  --sketch-border-sketch: #332b24;
+
+  /* Default Accent: Matcha Latte */
+  --sketch-accent: #2e7d52;
+  --sketch-accent-hover: #1f5939;
+  --sketch-accent-tint: #e4f5ec;
+  --sketch-accent-tint-subtle: #f8fcf9;
+  --sketch-accent-border: #9dd8b7;
+  --sketch-accent-text: #16472d;
+  --sketch-accent-rgb: 46, 125, 82;
+  --sketch-highlight-rgb: 168, 230, 192;
+  --sketch-highlight-bg: rgba(168, 230, 192, 0.55);
+
+  /* Pattern Colors */
+  --sketch-pattern-rule: rgba(55, 95, 145, 0.14);
+  --sketch-pattern-grid: rgba(55, 95, 145, 0.12);
+  --sketch-pattern-grid-bold: rgba(55, 95, 145, 0.22);
+  --sketch-pattern-dot: rgba(55, 95, 145, 0.20);
+  --sketch-margin-line: rgba(230, 85, 95, 0.42);
+
+  /* Tactile Stationery Drop-Shadows */
+  --sketch-shadow-sm: 2px 2px 0px rgba(51, 43, 36, 0.08);
+  --sketch-shadow-card: 3px 5px 0px rgba(51, 43, 36, 0.11), 0 2px 6px rgba(0,0,0,0.04);
+  --sketch-shadow-card-hover: 4px 7px 0px rgba(51, 43, 36, 0.14), 0 4px 12px rgba(0,0,0,0.06);
+  --sketch-shadow-pop: 6px 8px 0px rgba(51, 43, 36, 0.15), 0 6px 16px rgba(0,0,0,0.08);
+
+  /* Heading Pastel Palette */
+  --sketch-h1-color: #6d44ba;
+  --sketch-h2-color: #2e7d52;
+  --sketch-h3-color: #d45d22;
+  --sketch-h4-color: #1e6fa8;
+  --sketch-h5-color: #c93666;
+  --sketch-h6-color: #996e10;
+
+  /* Obsidian Standard CSS Variable Mappings */
+  --background-primary: var(--sketch-bg-paper);
+  --background-primary-alt: var(--sketch-bg-paper-alt);
+  --background-secondary: var(--sketch-bg-sidebar);
+  --background-secondary-alt: var(--sketch-bg-subtle);
+  --background-modifier-border: var(--sketch-border);
+  --background-modifier-border-hover: var(--sketch-border-strong);
+  --background-modifier-border-focus: var(--sketch-accent);
+  --background-modifier-form-field: #ffffff;
+  --background-modifier-box-shadow: var(--sketch-shadow-card);
+  
+  --text-normal: var(--sketch-ink-main);
+  --text-muted: var(--sketch-ink-muted);
+  --text-faint: var(--sketch-ink-faint);
+  --text-accent: var(--sketch-accent);
+  --text-accent-hover: var(--sketch-accent-hover);
+  --text-on-accent: #ffffff;
+  --text-highlight-bg: var(--sketch-highlight-bg);
+
+  --interactive-accent: var(--sketch-accent);
+  --interactive-accent-hover: var(--sketch-accent-hover);
+  --interactive-normal: var(--sketch-bg-paper-alt);
+  --interactive-hover: var(--sketch-bg-subtle);
+
+  --h1-color: var(--sketch-h1-color);
+  --h2-color: var(--sketch-h2-color);
+  --h3-color: var(--sketch-h3-color);
+  --h4-color: var(--sketch-h4-color);
+  --h5-color: var(--sketch-h5-color);
+  --h6-color: var(--sketch-h6-color);
+
+  /* Dividers & Resize Handles */
+  --divider-color: var(--sketch-border);
+  --divider-color-hover: var(--sketch-accent);
+  --divider-width: 2px;
+  --divider-width-hover: 8px;
+  --divider-vertical-height: 100%;
+
+  /* Search & Inputs */
+  --search-icon-color: var(--sketch-ink-muted);
+  --search-clear-button-color: var(--sketch-ink-muted);
+  --search-icon-size: 16px;
+  --input-height: 32px;
+
+  /* Omnicore Interop */
+  --oc-bg-card: var(--sketch-bg-card);
+  --oc-bg-header: var(--sketch-bg-paper-alt);
+  --oc-border: var(--sketch-border-strong);
+  --oc-text-main: var(--sketch-ink-main);
+  --oc-text-muted: var(--sketch-ink-muted);
+  --oc-text-faint: var(--sketch-ink-faint);
+  --oc-shadow-card: var(--sketch-shadow-card);
+}
+
+/* =============================================================================
+   3. DARK MODE: DEEP GRAPHITE & CHALKBOARD SKETCHBOOK
+============================================================================= */
+
+.theme-dark {
+  /* Deep Slate Charcoal Paper */
+  --sketch-bg-paper: #121316;
+  --sketch-bg-paper-alt: #181a20;
+  --sketch-bg-card: #1c1f26;
+  --sketch-bg-card-alt: #222630;
+  --sketch-bg-sidebar: #0e0f12;
+  --sketch-bg-subtle: #242832;
+
+  /* Text: Chalk White & Silver Inks (> 15:1) */
+  --sketch-ink-main: #f5f4ef;
+  --sketch-ink-muted: #b0b6c6;
+  --sketch-ink-faint: #757b8c;
+  --sketch-border: rgba(200, 215, 245, 0.14);
+  --sketch-border-strong: rgba(215, 230, 255, 0.26);
+  --sketch-border-sketch: #9aa2b5;
+
+  /* Glowing Pastel Accent: Matcha Mint */
+  --sketch-accent: #6ee7b7;
+  --sketch-accent-hover: #9ef3cf;
+  --sketch-accent-tint: rgba(110, 231, 183, 0.16);
+  --sketch-accent-tint-subtle: #222731;
+  --sketch-accent-border: rgba(110, 231, 183, 0.38);
+  --sketch-accent-text: #a7f3d0;
+  --sketch-accent-rgb: 110, 231, 183;
+  --sketch-highlight-rgb: 75, 175, 135;
+  --sketch-highlight-bg: rgba(75, 175, 135, 0.45);
+
+  /* Pattern Colors */
+  --sketch-pattern-rule: rgba(255, 255, 255, 0.08);
+  --sketch-pattern-grid: rgba(255, 255, 255, 0.06);
+  --sketch-pattern-grid-bold: rgba(255, 255, 255, 0.13);
+  --sketch-pattern-dot: rgba(255, 255, 255, 0.14);
+  --sketch-margin-line: rgba(255, 125, 140, 0.28);
+
+  /* Shadows */
+  --sketch-shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.45);
+  --sketch-shadow-card: 3px 5px 0px rgba(0, 0, 0, 0.55), 0 2px 8px rgba(0,0,0,0.3);
+  --sketch-shadow-card-hover: 4px 7px 0px rgba(0, 0, 0, 0.65), 0 4px 14px rgba(0,0,0,0.4);
+  --sketch-shadow-pop: 6px 8px 0px rgba(0, 0, 0, 0.75), 0 6px 18px rgba(0,0,0,0.5);
+
+  /* Dark Mode Headings */
+  --sketch-h1-color: #c4b5fd;
+  --sketch-h2-color: #6ee7b7;
+  --sketch-h3-color: #fdba74;
+  --sketch-h4-color: #7dd3fc;
+  --sketch-h5-color: #f472b6;
+  --sketch-h6-color: #fde047;
+
+  /* Obsidian Standard CSS Variable Mappings */
+  --background-primary: var(--sketch-bg-paper);
+  --background-primary-alt: var(--sketch-bg-paper-alt);
+  --background-secondary: var(--sketch-bg-sidebar);
+  --background-secondary-alt: var(--sketch-bg-subtle);
+  --background-modifier-border: var(--sketch-border);
+  --background-modifier-border-hover: var(--sketch-border-strong);
+  --background-modifier-border-focus: var(--sketch-accent);
+  --background-modifier-form-field: #1e2129;
+  --background-modifier-box-shadow: var(--sketch-shadow-card);
+
+  --text-normal: var(--sketch-ink-main);
+  --text-muted: var(--sketch-ink-muted);
+  --text-faint: var(--sketch-ink-faint);
+  --text-accent: var(--sketch-accent);
+  --text-accent-hover: var(--sketch-accent-hover);
+  --text-on-accent: #0f1013;
+  --text-highlight-bg: var(--sketch-highlight-bg);
+
+  --interactive-accent: var(--sketch-accent);
+  --interactive-accent-hover: var(--sketch-accent-hover);
+  --interactive-normal: var(--sketch-bg-paper-alt);
+  --interactive-hover: var(--sketch-bg-subtle);
+
+  --h1-color: var(--sketch-h1-color);
+  --h2-color: var(--sketch-h2-color);
+  --h3-color: var(--sketch-h3-color);
+  --h4-color: var(--sketch-h4-color);
+  --h5-color: var(--sketch-h5-color);
+  --h6-color: var(--sketch-h6-color);
+
+  /* Dividers & Resize Handles */
+  --divider-color: var(--sketch-border);
+  --divider-color-hover: var(--sketch-accent);
+  --divider-width: 2px;
+  --divider-width-hover: 8px;
+  --divider-vertical-height: 100%;
+
+  /* Search & Inputs */
+  --search-icon-color: var(--sketch-ink-muted);
+  --search-clear-button-color: var(--sketch-ink-muted);
+  --search-icon-size: 16px;
+  --input-height: 32px;
+
+  /* Omnicore Interop */
+  --oc-bg-card: var(--sketch-bg-card);
+  --oc-bg-header: var(--sketch-bg-paper-alt);
+  --oc-border: var(--sketch-border-strong);
+  --oc-text-main: var(--sketch-ink-main);
+  --oc-text-muted: var(--sketch-ink-muted);
+  --oc-text-faint: var(--sketch-ink-faint);
+  --oc-shadow-card: var(--sketch-shadow-card);
+}
+
+/* =============================================================================
+   4. VIBRANT PASTEL ACCENT PRESETS
+============================================================================= */
+
+/* --- 1. Matcha & Mint (Default) --- */
+.preset-sage {
+  --sketch-accent: #2e7d52;
+  --sketch-accent-hover: #1f5939;
+  --sketch-accent-tint: #e4f5ec;
+  --sketch-accent-tint-subtle: #f8fcf9;
+  --sketch-accent-border: #9dd8b7;
+  --sketch-accent-text: #16472d;
+  --sketch-accent-rgb: 46, 125, 82;
+  --sketch-highlight-rgb: 168, 230, 192;
+}
+.theme-dark.preset-sage, .theme-dark .preset-sage {
+  --sketch-accent: #6ee7b7;
+  --sketch-accent-hover: #9ef3cf;
+  --sketch-accent-tint: rgba(110, 231, 183, 0.16);
+  --sketch-accent-tint-subtle: #222731;
+  --sketch-accent-border: rgba(110, 231, 183, 0.38);
+  --sketch-accent-text: #a7f3d0;
+  --sketch-accent-rgb: 110, 231, 183;
+  --sketch-highlight-rgb: 75, 175, 135;
+}
+
+/* --- 2. Peach & Apricot --- */
+.preset-peach {
+  --sketch-accent: #d45d22;
+  --sketch-accent-hover: #b04612;
+  --sketch-accent-tint: #ffeedf;
+  --sketch-accent-tint-subtle: #fff7ef;
+  --sketch-accent-border: #f8be9e;
+  --sketch-accent-text: #8e3814;
+  --sketch-accent-rgb: 212, 93, 34;
+  --sketch-highlight-rgb: 255, 204, 173;
+}
+.theme-dark.preset-peach, .theme-dark .preset-peach {
+  --sketch-accent: #fdba74;
+  --sketch-accent-hover: #fed7aa;
+  --sketch-accent-tint: rgba(253, 186, 116, 0.16);
+  --sketch-accent-tint-subtle: #2b2420;
+  --sketch-accent-border: rgba(253, 186, 116, 0.38);
+  --sketch-accent-text: #ffedd5;
+  --sketch-accent-rgb: 253, 186, 116;
+  --sketch-highlight-rgb: 215, 125, 75;
+}
+
+/* --- 3. Strawberry & Rose --- */
+.preset-rose {
+  --sketch-accent: #c93666;
+  --sketch-accent-hover: #a1234d;
+  --sketch-accent-tint: #fde6ef;
+  --sketch-accent-tint-subtle: #fef2f7;
+  --sketch-accent-border: #f7b4c9;
+  --sketch-accent-text: #89213d;
+  --sketch-accent-rgb: 201, 54, 102;
+  --sketch-highlight-rgb: 255, 185, 210;
+}
+.theme-dark.preset-rose, .theme-dark .preset-rose {
+  --sketch-accent: #f472b6;
+  --sketch-accent-hover: #f9a8d4;
+  --sketch-accent-tint: rgba(244, 114, 182, 0.16);
+  --sketch-accent-tint-subtle: #2c2027;
+  --sketch-accent-border: rgba(244, 114, 182, 0.38);
+  --sketch-accent-text: #fce7f3;
+  --sketch-accent-rgb: 244, 114, 182;
+  --sketch-highlight-rgb: 210, 90, 135;
+}
+
+/* --- 4. Taro & Lavender --- */
+.preset-lavender {
+  --sketch-accent: #6d44ba;
+  --sketch-accent-hover: #522d99;
+  --sketch-accent-tint: #efe6fc;
+  --sketch-accent-tint-subtle: #f8f4fe;
+  --sketch-accent-border: #c9b4f0;
+  --sketch-accent-text: #452485;
+  --sketch-accent-rgb: 109, 68, 186;
+  --sketch-highlight-rgb: 216, 195, 252;
+}
+.theme-dark.preset-lavender, .theme-dark .preset-lavender {
+  --sketch-accent: #c4b5fd;
+  --sketch-accent-hover: #ddd6fe;
+  --sketch-accent-tint: rgba(196, 181, 253, 0.16);
+  --sketch-accent-tint-subtle: #272333;
+  --sketch-accent-border: rgba(196, 181, 253, 0.38);
+  --sketch-accent-text: #ede9fe;
+  --sketch-accent-rgb: 196, 181, 253;
+  --sketch-highlight-rgb: 145, 125, 220;
+}
+
+/* --- 5. Sky & Periwinkle --- */
+.preset-sky {
+  --sketch-accent: #1e6fa8;
+  --sketch-accent-hover: #125382;
+  --sketch-accent-tint: #e0f2fe;
+  --sketch-accent-tint-subtle: #f0f8ff;
+  --sketch-accent-border: #9ad2f8;
+  --sketch-accent-text: #14496f;
+  --sketch-accent-rgb: 30, 111, 168;
+  --sketch-highlight-rgb: 185, 225, 255;
+}
+.theme-dark.preset-sky, .theme-dark .preset-sky {
+  --sketch-accent: #7dd3fc;
+  --sketch-accent-hover: #bae6fd;
+  --sketch-accent-tint: rgba(125, 211, 252, 0.16);
+  --sketch-accent-tint-subtle: #1f2833;
+  --sketch-accent-border: rgba(125, 211, 252, 0.38);
+  --sketch-accent-text: #e0f2fe;
+  --sketch-accent-rgb: 125, 211, 252;
+  --sketch-highlight-rgb: 85, 160, 225;
+}
+
+/* --- 6. Honey & Butter --- */
+.preset-butter {
+  --sketch-accent: #996e10;
+  --sketch-accent-hover: #755207;
+  --sketch-accent-tint: #fef8db;
+  --sketch-accent-tint-subtle: #fffdf2;
+  --sketch-accent-border: #f7df8b;
+  --sketch-accent-text: #614404;
+  --sketch-accent-rgb: 153, 110, 16;
+  --sketch-highlight-rgb: 255, 238, 165;
+}
+.theme-dark.preset-butter, .theme-dark .preset-butter {
+  --sketch-accent: #fde047;
+  --sketch-accent-hover: #fef08a;
+  --sketch-accent-tint: rgba(253, 224, 71, 0.16);
+  --sketch-accent-tint-subtle: #2c291c;
+  --sketch-accent-border: rgba(253, 224, 71, 0.38);
+  --sketch-accent-text: #fef9c3;
+  --sketch-accent-rgb: 253, 224, 71;
+  --sketch-highlight-rgb: 205, 170, 60;
+}
+
+/* --- 7. Coral & Melon --- */
+.preset-coral {
+  --sketch-accent: #be3b2e;
+  --sketch-accent-hover: #96281d;
+  --sketch-accent-tint: #fde8e5;
+  --sketch-accent-tint-subtle: #fef3f1;
+  --sketch-accent-border: #f8aba2;
+  --sketch-accent-text: #7c2016;
+  --sketch-accent-rgb: 190, 59, 46;
+  --sketch-highlight-rgb: 255, 195, 185;
+}
+.theme-dark.preset-coral, .theme-dark .preset-coral {
+  --sketch-accent: #fda4af;
+  --sketch-accent-hover: #fecdd3;
+  --sketch-accent-tint: rgba(253, 164, 175, 0.16);
+  --sketch-accent-tint-subtle: #2e2023;
+  --sketch-accent-border: rgba(253, 164, 175, 0.38);
+  --sketch-accent-text: #ffe4e6;
+  --sketch-accent-rgb: 253, 164, 175;
+  --sketch-highlight-rgb: 215, 100, 115;
+}
+
+/* Custom Accent Override */
+body[style*="--sketch-custom-accent:"] {
+  --sketch-accent: var(--sketch-custom-accent);
+  --text-accent: var(--sketch-custom-accent);
+  --interactive-accent: var(--sketch-custom-accent);
+}
+
+/* =============================================================================
+   5. OFF-WHITE STAINED PAPER & TEXTURE RENDERING
+============================================================================= */
+
+/* Force transparency on inner scrollers so canvas texture shines through */
+.workspace-leaf-content[data-type="markdown"] .view-content,
+.workspace-leaf-content[data-type="markdown"] .markdown-source-view,
+.workspace-leaf-content[data-type="markdown"] .cm-scroller,
+.workspace-leaf-content[data-type="markdown"] .markdown-rendered {
+  background-color: transparent;
+}
+
+/* Light Mode: Stained Off-White Vintage Canvas */
+.theme-light .workspace-leaf-content[data-type="markdown"] {
+  background-color: #faf7f0;
+  background-image: 
+    radial-gradient(ellipse at 12% 16%, rgba(210, 180, 135, 0.14) 0%, transparent 48%),
+    radial-gradient(ellipse at 88% 82%, rgba(195, 162, 118, 0.13) 0%, transparent 52%),
+    radial-gradient(circle at 62% 25%, rgba(215, 188, 142, 0.09) 0%, transparent 40%),
+    radial-gradient(circle at 28% 85%, rgba(205, 175, 130, 0.11) 0%, transparent 45%),
+    var(--sketch-svg-stain);
+  background-attachment: local;
+  position: relative;
+}
+
+/* Dark Mode: Deep Slate Charcoal Canvas */
+.theme-dark .workspace-leaf-content[data-type="markdown"] {
+  background-color: #121316;
+  background-image: var(--sketch-svg-chalkboard);
+  background-attachment: local;
+  position: relative;
+}
+
+/* Optional Notebook Margin Rule */
+body.sketch-paper-edge .workspace-leaf-content[data-type="markdown"] .view-content,
+body:not([class*="sketch-paper-edge-false"]) .workspace-leaf-content[data-type="markdown"] .view-content {
+  border-left: 3px double var(--sketch-margin-line);
+  box-shadow: -4px 0 10px -3px rgba(0, 0, 0, 0.06) inset;
+  padding-left: 18px;
+}
+
+/* Texture Pattern 2: Ruled Lined Notebook Paper */
+body.texture-lined .workspace-leaf-content[data-type="markdown"] {
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent calc(32px - 1.5px),
+    var(--sketch-pattern-rule) calc(32px - 1.5px),
+    var(--sketch-pattern-rule) 32px
+  ), var(--sketch-svg-stain);
+  background-size: 100% 32px, 800px 800px;
+}
+
+/* Texture Pattern 3: Dual-Level Engineering Math Grid Paper */
+body.texture-grid .workspace-leaf-content[data-type="markdown"] {
+  background-image: 
+    linear-gradient(var(--sketch-pattern-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--sketch-pattern-grid) 1px, transparent 1px),
+    linear-gradient(var(--sketch-pattern-grid-bold) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--sketch-pattern-grid-bold) 1.5px, transparent 1.5px),
+    var(--sketch-svg-stain);
+  background-size: 8px 8px, 8px 8px, 40px 40px, 40px 40px, 800px 800px;
+}
+
+/* Texture Pattern 4: Dotted Bullet Journal Grid */
+body.texture-dots .workspace-leaf-content[data-type="markdown"] {
+  background-image: radial-gradient(var(--sketch-pattern-dot) 1.4px, transparent 1.4px), var(--sketch-svg-stain);
+  background-size: 22px 22px, 800px 800px;
+}
+
+/* Texture Pattern 5: Warm Kraft Paper */
+body.texture-kraft {
+  --sketch-bg-paper: #e7d7bd;
+  --sketch-bg-paper-alt: #dcceb1;
+  --sketch-bg-card: #f2e7d3;
+  --sketch-bg-sidebar: #d9c8a7;
+  --sketch-ink-main: #221b13;
+  --sketch-border: rgba(75, 50, 25, 0.25);
+}
+body.texture-kraft .workspace-leaf-content[data-type="markdown"] {
+  background-color: #e7d7bd;
+  background-image: var(--sketch-svg-kraft);
+}
+
+/* Texture Pattern 6: Smooth Fine Paper */
+body.texture-smooth .workspace-leaf-content[data-type="markdown"] {
+  background-image: none;
+}
+
+/* =============================================================================
+   6. TWO AESTHETIC MODES: HANDWRITTEN SKETCH vs CLEAN & PROFESSIONAL
+============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   MODE A: HANDWRITTEN SKETCH (Default)
+----------------------------------------------------------------------------- */
+body:not(.sketch-mode-clean),
+body.sketch-mode-handwritten {
+  --font-text: var(--sketch-font-body-sketch);
+  --font-interface: var(--sketch-font-body-sketch);
+  --font-heading: var(--sketch-font-heading-sketch);
+  --font-monospace: var(--sketch-font-mono);
+
+  --sketch-active-radius-sm: var(--sketch-radius-sm);
+  --sketch-active-radius-md: var(--sketch-radius-md);
+  --sketch-active-radius-lg: var(--sketch-radius-lg);
+  --sketch-active-radius-card: var(--sketch-radius-card);
+}
+
+body:not(.sketch-mode-clean) .markdown-rendered,
+body.sketch-mode-handwritten .markdown-rendered,
+body:not(.sketch-mode-clean) .cm-scroller,
+body.sketch-mode-handwritten .cm-scroller,
+body:not(.sketch-mode-clean) .cm-content,
+body.sketch-mode-handwritten .cm-content {
+  font-family: var(--sketch-font-body-sketch);
+  font-size: var(--sketch-font-size-base, 16px);
+  line-height: var(--sketch-line-height, 1.68);
+  letter-spacing: 0.015em;
+  color: var(--sketch-ink-main);
+}
+
+/* Reading View Heading 1 */
+body:not(.sketch-mode-clean) .markdown-rendered h1,
+body.sketch-mode-handwritten .markdown-rendered h1 {
+  font-family: var(--sketch-font-heading-sketch);
+  font-size: 2.1em;
+  font-weight: 700;
+  color: var(--sketch-h1-color);
+  position: relative;
+  display: inline-block;
+  padding: 4px 14px 6px 14px;
+  margin: 1.2em 0 0.8em 0;
+  background: var(--sketch-accent-tint);
+  border-radius: var(--sketch-radius-sm);
+  border: 2px solid var(--sketch-accent);
+  box-shadow: var(--sketch-shadow-sm);
+  transform: rotate(-0.5deg);
+}
+
+/* Live Preview Heading 1 (Stable block layout prevents CodeMirror cursor jumping) */
+body:not(.sketch-mode-clean) .cm-line.HyperMD-header-1,
+body.sketch-mode-handwritten .cm-line.HyperMD-header-1 {
+  font-family: var(--sketch-font-heading-sketch);
+  font-size: 2.1em;
+  font-weight: 700;
+  color: var(--sketch-h1-color);
+  display: block;
+  transform: none;
+  border-left: 4px solid var(--sketch-accent);
+  background: var(--sketch-accent-tint);
+  padding: 6px 14px;
+  border-radius: var(--sketch-radius-sm);
+  margin: 0.8em 0 0.4em 0;
+}
+
+/* Reading View Heading 2 */
+body:not(.sketch-mode-clean) .markdown-rendered h2,
+body.sketch-mode-handwritten .markdown-rendered h2 {
+  font-family: var(--sketch-font-heading-sketch);
+  font-size: 1.65em;
+  font-weight: 700;
+  color: var(--sketch-h2-color);
+  border-bottom: 2.5px dashed var(--sketch-accent);
+  padding-bottom: 4px;
+  margin: 1.1em 0 0.6em 0;
+  display: table;
+}
+
+/* Live Preview Heading 2 */
+body:not(.sketch-mode-clean) .cm-line.HyperMD-header-2,
+body.sketch-mode-handwritten .cm-line.HyperMD-header-2 {
+  font-family: var(--sketch-font-heading-sketch);
+  font-size: 1.65em;
+  font-weight: 700;
+  color: var(--sketch-h2-color);
+  display: block;
+  border-bottom: 2.5px dashed var(--sketch-accent);
+  padding-bottom: 4px;
+  margin: 0.8em 0 0.4em 0;
+}
+
+/* Headings 3 */
+body:not(.sketch-mode-clean) .markdown-rendered h3,
+body.sketch-mode-handwritten .markdown-rendered h3,
+body:not(.sketch-mode-clean) .HyperMD-header-3,
+body.sketch-mode-handwritten .HyperMD-header-3 {
+  font-family: var(--sketch-font-heading-sketch);
+  font-size: 1.38em;
+  font-weight: 700;
+  color: var(--sketch-h3-color);
+  margin: 1em 0 0.4em 0;
+}
+
+/* -----------------------------------------------------------------------------
+   MODE B: CLEAN & PROFESSIONAL
+----------------------------------------------------------------------------- */
+body.sketch-mode-clean {
+  --font-text: var(--sketch-font-body-clean);
+  --font-interface: var(--sketch-font-body-clean);
+  --font-heading: var(--sketch-font-heading-clean);
+  --font-monospace: var(--sketch-font-mono);
+
+  --sketch-active-radius-sm: var(--clean-radius-sm);
+  --sketch-active-radius-md: var(--clean-radius-md);
+  --sketch-active-radius-lg: var(--clean-radius-lg);
+  --sketch-active-radius-card: var(--clean-radius-card);
+}
+
+body.sketch-mode-clean .markdown-rendered,
+body.sketch-mode-clean .cm-scroller,
+body.sketch-mode-clean .cm-content {
+  font-family: var(--sketch-font-body-clean);
+  font-size: var(--sketch-font-size-base, 16px);
+  line-height: var(--sketch-line-height, 1.68);
+  letter-spacing: -0.012em;
+}
+
+body.sketch-mode-clean .markdown-rendered h1,
+body.sketch-mode-clean .HyperMD-header-1 {
+  font-family: var(--sketch-font-heading-clean);
+  font-size: 1.95em;
+  font-weight: 700;
+  color: var(--sketch-h1-color);
+  border-bottom: 2px solid var(--sketch-border);
+  padding-bottom: 8px;
+  margin-bottom: 0.8em;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+}
+
+body.sketch-mode-clean .markdown-rendered h2,
+body.sketch-mode-clean .HyperMD-header-2 {
+  font-family: var(--sketch-font-heading-clean);
+  font-size: 1.55em;
+  font-weight: 600;
+  color: var(--sketch-h2-color);
+  border-bottom: 1px solid var(--sketch-border);
+  padding-bottom: 6px;
+}
+
+/* =============================================================================
+   7. RICH VISUAL CARDS & CALLOUTS
+============================================================================= */
+
+body .callout {
+  border-radius: var(--sketch-active-radius-card);
+  background-color: var(--sketch-bg-card);
+  border: 1.8px solid var(--sketch-border-strong);
+  box-shadow: var(--sketch-shadow-card);
+  position: relative;
+  margin: 1.6em 0;
+  padding: 18px 22px;
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s ease;
+  overflow: visible;
+}
+
+body .callout:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sketch-shadow-card-hover);
+}
+
+body:not(.sketch-mode-clean):not(.sketch-washi-tape-false) .callout::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 42px;
+  width: 84px;
+  height: 20px;
+  background: rgba(var(--sketch-highlight-rgb), 0.65);
+  border-left: 3px dashed rgba(255, 255, 255, 0.6);
+  border-right: 3px dashed rgba(255, 255, 255, 0.6);
+  transform: rotate(-1.5deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+body.sketch-mode-clean .callout {
+  border-radius: var(--clean-radius-card);
+  border: 1px solid var(--sketch-border);
+  border-left: 5px solid var(--callout-color, var(--sketch-accent));
+  transform: none;
+}
+body.sketch-mode-clean .callout::before {
+  display: none;
+}
+
+/* Callout Title & Icon */
+body .callout-title {
+  font-weight: 700;
+  font-size: 1.05em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: var(--sketch-ink-main);
+}
+
+body .callout-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: var(--sketch-accent-tint);
+  color: var(--sketch-accent);
+  padding: 4px;
+  box-shadow: 1px 1px 0px rgba(0,0,0,0.06);
+}
+
+body .callout-icon::after {
+  display: none;
+}
+
+body .callout-content {
+  padding: 4px 0 0 2px;
+}
+
+/* Callout Types */
+body .callout[data-callout="note"],
+body .callout[data-callout="info"] {
+  --callout-color: #1e6fa8;
+  border-color: rgba(30, 111, 168, 0.35);
+  background: linear-gradient(180deg, rgba(224, 242, 254, 0.35) 0%, var(--sketch-bg-card) 60px);
+}
+body .callout[data-callout="tip"],
+body .callout[data-callout="hint"] {
+  --callout-color: #2e7d52;
+  border-color: rgba(46, 125, 82, 0.35);
+  background: linear-gradient(180deg, rgba(228, 245, 236, 0.35) 0%, var(--sketch-bg-card) 60px);
+}
+body .callout[data-callout="warning"],
+body .callout[data-callout="caution"] {
+  --callout-color: #d45d22;
+  border-color: rgba(212, 93, 34, 0.35);
+  background: linear-gradient(180deg, rgba(255, 238, 223, 0.35) 0%, var(--sketch-bg-card) 60px);
+}
+body .callout[data-callout="danger"],
+body .callout[data-callout="bug"] {
+  --callout-color: #c93666;
+  border-color: rgba(201, 54, 102, 0.35);
+  background: linear-gradient(180deg, rgba(253, 230, 239, 0.35) 0%, var(--sketch-bg-card) 60px);
+}
+body .callout[data-callout="quote"],
+body .callout[data-callout="cite"] {
+  --callout-color: #6d44ba;
+  border-color: rgba(109, 68, 186, 0.35);
+  background: linear-gradient(180deg, rgba(239, 230, 252, 0.35) 0%, var(--sketch-bg-card) 60px);
+}
+body .callout[data-callout="todo"],
+body .callout[data-callout="example"] {
+  --callout-color: #996e10;
+  border-color: rgba(153, 110, 16, 0.35);
+  background: linear-gradient(180deg, rgba(254, 248, 219, 0.35) 0%, var(--sketch-bg-card) 60px);
+}
+
+/* Omnicore Card & Grid System Interop */
+body .omnicore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+body .omnicore-card {
+  background: var(--sketch-bg-card);
+  border: 1.8px solid var(--sketch-border-strong);
+  border-top: 4px solid var(--sketch-accent);
+  border-radius: var(--sketch-active-radius-card);
+  padding: 20px 22px;
+  box-shadow: var(--sketch-shadow-card);
+  position: relative;
+  transition: all 0.18s ease;
+}
+
+body:not(.sketch-mode-clean) .omnicore-card:hover {
+  transform: translateY(-3px) rotate(-0.5deg);
+  box-shadow: var(--sketch-shadow-card-hover);
+}
+
+.omnicore-card .card-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sketch-accent);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.omnicore-card .card-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--sketch-ink-main);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* =============================================================================
+   8. POLAROID PHOTO CARDS FOR EMBEDDED IMAGES
+============================================================================= */
+
+body:not(.sketch-mode-clean) .image-embed,
+body:not(.sketch-mode-clean) .markdown-rendered img:not(.emoji) {
+  background: #ffffff;
+  padding: 10px 10px 24px 10px;
+  border: 1.8px solid var(--sketch-border-strong);
+  border-radius: var(--sketch-radius-card);
+  box-shadow: var(--sketch-shadow-card);
+  display: inline-block;
+  margin: 1.6em 0;
+  position: relative;
+  transform: rotate(-0.8deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-dark body:not(.sketch-mode-clean) .image-embed,
+.theme-dark body:not(.sketch-mode-clean) .markdown-rendered img:not(.emoji) {
+  background: #232730;
+  border-color: var(--sketch-border-strong);
+}
+
+body:not(.sketch-mode-clean) .image-embed:hover,
+body:not(.sketch-mode-clean) .markdown-rendered img:not(.emoji):hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: var(--sketch-shadow-card-hover);
+}
+
+body:not(.sketch-mode-clean):not(.sketch-washi-tape-false) .image-embed::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(1deg);
+  width: 70px;
+  height: 18px;
+  background: rgba(var(--sketch-highlight-rgb), 0.65);
+  border-left: 2px dashed rgba(255, 255, 255, 0.6);
+  border-right: 2px dashed rgba(255, 255, 255, 0.6);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* =============================================================================
+   9. PERFECT HIGH-CONTRAST TABLES (LIGHT & DARK MODES)
+============================================================================= */
+
+body .markdown-rendered table,
+body .table-view-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.8em 0;
+  border-radius: var(--sketch-active-radius-card);
+  overflow: hidden;
+  box-shadow: var(--sketch-shadow-card);
+}
+
+/* --- LIGHT MODE TABLE STYLES --- */
+.theme-light body .markdown-rendered table,
+.theme-light body .table-view-table {
+  background-color: #ffffff;
+  border: 1.8px solid var(--sketch-border-strong);
+}
+
+.theme-light body .markdown-rendered table th,
+.theme-light body .table-view-thead th {
+  background-color: var(--sketch-accent-tint);
+  color: var(--sketch-accent-text);
+  font-weight: 700;
+  padding: 13px 18px;
+  border-bottom: 2px solid var(--sketch-accent-border);
+  text-align: left;
+  font-size: 0.94em;
+  vertical-align: middle;
+}
+
+.theme-light body .markdown-rendered table td,
+.theme-light body .table-view-tbody td {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--sketch-border);
+  background-color: #ffffff;
+  color: #1d1a18;
+  vertical-align: middle;
+}
+
+.theme-light body .markdown-rendered table tr:nth-child(even) td,
+.theme-light body .table-view-tbody tr:nth-child(even) td {
+  background-color: #f7f3ea; /* Soft warm off-white stained row */
+  color: #1d1a18;
+}
+
+.theme-light body .markdown-rendered table tr:hover td,
+.theme-light body .table-view-tbody tr:hover td {
+  background-color: var(--sketch-accent-tint);
+  color: var(--sketch-accent-text);
+}
+
+.theme-light body .markdown-rendered table td code,
+.theme-light body .table-view-tbody td code {
+  background-color: var(--sketch-accent-tint);
+  color: var(--sketch-accent-text);
+  border: 1px solid var(--sketch-accent-border);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* --- DARK MODE TABLE STYLES (RAZOR-SHARP CONTRAST) --- */
+.theme-dark body .markdown-rendered table,
+.theme-dark body .table-view-table {
+  background-color: #181a20;
+  border: 1.8px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+}
+
+.theme-dark body .markdown-rendered table th,
+.theme-dark body .table-view-thead th {
+  background-color: rgba(var(--sketch-accent-rgb), 0.18);
+  color: var(--sketch-accent-text);
+  font-weight: 700;
+  padding: 13px 18px;
+  border-bottom: 2px solid rgba(var(--sketch-accent-rgb), 0.4);
+  text-align: left;
+  font-size: 0.94em;
+  vertical-align: middle;
+}
+
+/* Odd Rows in Dark Mode */
+.theme-dark body .markdown-rendered table td,
+.theme-dark body .table-view-tbody td {
+  padding: 12px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #1e2129;
+  color: #f5f4ef; /* Chalk white text */
+  vertical-align: middle;
+}
+
+/* Even Rows in Dark Mode: Subtle Dark Slate (NEVER LIGHT OR WHITE!) */
+.theme-dark body .markdown-rendered table tr:nth-child(even) td,
+.theme-dark body .table-view-tbody tr:nth-child(even) td {
+  background-color: #262b35;
+  color: #f5f4ef; /* Chalk white text */
+}
+
+/* Hover in Dark Mode */
+.theme-dark body .markdown-rendered table tr:hover td,
+.theme-dark body .table-view-tbody tr:hover td {
+  background-color: rgba(var(--sketch-accent-rgb), 0.22);
+  color: #ffffff;
+}
+
+/* Code Pills Inside Dark Mode Tables */
+.theme-dark body .markdown-rendered table td code,
+.theme-dark body .table-view-tbody td code {
+  background-color: #13151b;
+  color: var(--sketch-accent-text);
+  border: 1px solid rgba(var(--sketch-accent-rgb), 0.4);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.theme-dark body .markdown-rendered table td a,
+.theme-dark body .table-view-tbody td a {
+  color: var(--sketch-accent);
+  font-weight: 600;
+}
+
+body .markdown-rendered table tr:last-child td {
+  border-bottom: none;
+}
+
+/* =============================================================================
+   10. HIGHLIGHTER STYLES (==highlighted text==)
+============================================================================= */
+
+mark,
+.cm-highlight {
+  color: inherit;
+}
+
+body:not([class*="hl-"]) mark,
+body.hl-marker mark,
+body:not([class*="hl-"]) .cm-highlight,
+body.hl-marker .cm-highlight {
+  background: linear-gradient(
+    104deg,
+    rgba(var(--sketch-highlight-rgb), 0) 0.5%,
+    rgba(var(--sketch-highlight-rgb), 0.65) 3%,
+    rgba(var(--sketch-highlight-rgb), 0.72) 6%,
+    rgba(var(--sketch-highlight-rgb), 0.65) 93%,
+    rgba(var(--sketch-highlight-rgb), 0.5) 97%,
+    rgba(var(--sketch-highlight-rgb), 0) 99%
+  ),
+  linear-gradient(
+    183deg,
+    rgba(var(--sketch-highlight-rgb), 0) 0%,
+    rgba(var(--sketch-highlight-rgb), 0.55) 7%,
+    rgba(var(--sketch-highlight-rgb), 0.68) 16%,
+    rgba(var(--sketch-highlight-rgb), 0.6) 88%,
+    rgba(var(--sketch-highlight-rgb), 0) 100%
+  );
+  padding: 3px 8px;
+  border-radius: 4px 8px 3px 7px/7px 3px 8px 4px;
+  font-weight: 600;
+}
+
+body.hl-wavy mark,
+body.hl-wavy .cm-highlight {
+  background: transparent;
+  border-bottom: 2px wavy var(--sketch-accent);
+  padding-bottom: 2px;
+}
+
+body.hl-clean mark,
+body.hl-clean .cm-highlight {
+  background: rgba(var(--sketch-highlight-rgb), 0.5);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* =============================================================================
+   11. INTERACTIVE BOUNCY DOODLE CHECKBOXES
+============================================================================= */
+
+.task-list-item {
+  padding-left: 4px;
+  margin: 6px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+body:not(.sketch-mode-clean) .task-list-item input[type="checkbox"],
+body:not(.sketch-mode-clean) .task-list-item-checkbox,
+body:not(.sketch-mode-clean) .markdown-rendered input[type="checkbox"]:not(.checkbox-container input),
+body.sketch-mode-handwritten .task-list-item input[type="checkbox"],
+body.sketch-mode-handwritten .task-list-item-checkbox,
+body.sketch-mode-handwritten .markdown-rendered input[type="checkbox"]:not(.checkbox-container input) {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 19px;
+  height: 19px;
+  min-width: 19px;
+  border: 2px solid var(--sketch-accent);
+  border-radius: 4px 8px 3px 7px/7px 4px 8px 3px;
+  background-color: var(--sketch-bg-card);
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  margin: 3px 0 0 0;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.15s ease;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.08);
+}
+
+body:not(.sketch-mode-clean) .task-list-item input[type="checkbox"]:hover,
+body:not(.sketch-mode-clean) .task-list-item-checkbox:hover,
+body:not(.sketch-mode-clean) .markdown-rendered input[type="checkbox"]:not(.checkbox-container input):hover,
+body.sketch-mode-handwritten .task-list-item input[type="checkbox"]:hover,
+body.sketch-mode-handwritten .task-list-item-checkbox:hover,
+body.sketch-mode-handwritten .markdown-rendered input[type="checkbox"]:not(.checkbox-container input):hover {
+  transform: scale(1.18) rotate(-4deg);
+  border-color: var(--sketch-accent-hover);
+}
+
+body:not(.sketch-mode-clean) .task-list-item input[type="checkbox"]:checked,
+body:not(.sketch-mode-clean) .task-list-item-checkbox:checked,
+body:not(.sketch-mode-clean) .markdown-rendered input[type="checkbox"]:not(.checkbox-container input):checked,
+body.sketch-mode-handwritten .task-list-item input[type="checkbox"]:checked,
+body.sketch-mode-handwritten .task-list-item-checkbox:checked,
+body.sketch-mode-handwritten .markdown-rendered input[type="checkbox"]:not(.checkbox-container input):checked {
+  background-color: var(--sketch-accent-tint);
+  border-color: var(--sketch-accent);
+  transform: scale(1.05) rotate(2deg);
+}
+
+body:not(.sketch-mode-clean) .task-list-item input[type="checkbox"]:checked::after,
+body:not(.sketch-mode-clean) .task-list-item-checkbox:checked::after,
+body:not(.sketch-mode-clean) .markdown-rendered input[type="checkbox"]:not(.checkbox-container input):checked::after,
+body.sketch-mode-handwritten .task-list-item input[type="checkbox"]:checked::after,
+body.sketch-mode-handwritten .task-list-item-checkbox:checked::after,
+body.sketch-mode-handwritten .markdown-rendered input[type="checkbox"]:not(.checkbox-container input):checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--sketch-accent-text);
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 1;
+}
+
+body:not(.sketch-mode-clean) .task-list-item.is-checked,
+body.sketch-mode-handwritten .task-list-item.is-checked {
+  text-decoration: line-through;
+  opacity: 0.65;
+  color: var(--sketch-ink-muted);
+}
+
+/* Clean Mode Checkboxes */
+body.sketch-mode-clean .task-list-item {
+  padding-left: 4px;
+  margin: 6px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+body.sketch-mode-clean .task-list-item input[type="checkbox"],
+body.sketch-mode-clean .task-list-item-checkbox,
+body.sketch-mode-clean .markdown-rendered input[type="checkbox"]:not(.checkbox-container input) {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border: 1.5px solid var(--sketch-border-strong);
+  border-radius: var(--clean-radius-sm);
+  background-color: var(--sketch-bg-card);
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+  margin: 3px 0 0 0;
+  transition: all 0.15s ease;
+}
+
+body.sketch-mode-clean .task-list-item input[type="checkbox"]:hover,
+body.sketch-mode-clean .task-list-item-checkbox:hover,
+body.sketch-mode-clean .markdown-rendered input[type="checkbox"]:not(.checkbox-container input):hover {
+  border-color: var(--sketch-accent);
+}
+
+body.sketch-mode-clean .task-list-item input[type="checkbox"]:checked,
+body.sketch-mode-clean .task-list-item-checkbox:checked,
+body.sketch-mode-clean .markdown-rendered input[type="checkbox"]:not(.checkbox-container input):checked {
+  background-color: var(--sketch-accent);
+  border-color: var(--sketch-accent);
+}
+
+body.sketch-mode-clean .task-list-item input[type="checkbox"]:checked::after,
+body.sketch-mode-clean .task-list-item-checkbox:checked::after,
+body.sketch-mode-clean .markdown-rendered input[type="checkbox"]:not(.checkbox-container input):checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* =============================================================================
+   12. CODE BLOCKS & MONOSPACE INDEX CARDS
+============================================================================= */
+
+body pre[class*="language-"],
+body .markdown-rendered pre {
+  background-color: var(--sketch-bg-card);
+  border: 1.8px solid var(--sketch-border-strong);
+  border-radius: var(--sketch-active-radius-card);
+  box-shadow: var(--sketch-shadow-card);
+  padding: 38px 22px 18px 22px;
+  margin: 1.6em 0;
+  position: relative;
+}
+
+body pre[class*="language-"]::before,
+body .markdown-rendered pre::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #f87171;
+  box-shadow: 16px 0 0 #fbbf24, 32px 0 0 #34d399;
+}
+
+body pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--sketch-ink-main);
+  font-family: var(--sketch-font-mono);
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+body code {
+  font-family: var(--sketch-font-mono);
+  font-size: 0.88em;
+  background-color: var(--sketch-accent-tint);
+  color: var(--sketch-accent-text);
+  border: 1.2px solid var(--sketch-accent-border);
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+
+/* =============================================================================
+   13. STATIONERY STICKER TAGS & ACTION CHIPS
+============================================================================= */
+
+body .tag,
+body a.tag {
+  font-family: var(--sketch-font-mono);
+  font-size: 0.82em;
+  font-weight: 600;
+  padding: 3px 12px;
+  background-color: var(--sketch-accent-tint);
+  color: var(--sketch-accent-text);
+  border: 1.5px solid var(--sketch-accent-border);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body:not(.sketch-mode-clean) .tag,
+body:not(.sketch-mode-clean) a.tag,
+body.sketch-mode-handwritten .tag,
+body.sketch-mode-handwritten a.tag {
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.07);
+}
+
+body.sketch-mode-clean .tag,
+body.sketch-mode-clean a.tag {
+  border-radius: 14px;
+}
+
+body .tag:hover,
+body a.tag:hover {
+  background-color: var(--sketch-accent);
+  color: #ffffff;
+  transform: translateY(-2px) rotate(-1deg);
+  box-shadow: 3px 4px 0 rgba(0,0,0,0.12);
+}
+
+.action-chips a.internal-link,
+.action-chips .action-chip {
+  border-radius: var(--sketch-active-radius-sm);
+  background: var(--sketch-bg-card);
+  border: 1.5px solid var(--sketch-border-strong);
+  box-shadow: var(--sketch-shadow-sm);
+  font-weight: 600;
+  transition: all 0.18s ease;
+}
+
+.action-chips a.internal-link:hover,
+.action-chips .action-chip:hover {
+  background: var(--sketch-accent-tint);
+  border-color: var(--sketch-accent);
+  color: var(--sketch-accent-text);
+  transform: translateY(-2px);
+}
+
+/* =============================================================================
+   14. LINKS & HORIZONTAL RULES
+============================================================================= */
+
+.markdown-rendered a,
+.cm-link {
+  color: var(--sketch-accent);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px dotted var(--sketch-accent);
+  transition: all 0.15s ease;
+}
+
+.markdown-rendered a:hover,
+.cm-link:hover {
+  color: var(--sketch-accent-hover);
+  border-bottom-style: solid;
+}
+
+hr {
+  border: none;
+  margin: 2.2em 0;
+}
+
+/* =============================================================================
+   14. BLOCKQUOTES & MARGIN HIGHLIGHTS
+============================================================================= */
+
+body blockquote,
+body .markdown-rendered blockquote {
+  border-left: 3.5px solid var(--sketch-accent);
+  background-color: var(--sketch-bg-subtle);
+  border-radius: 0 var(--sketch-active-radius-sm) var(--sketch-active-radius-sm) 0;
+  padding: 12px 18px;
+  margin: 1.4em 0;
+  color: var(--sketch-ink-muted);
+  font-style: italic;
+}
+
+body:not(.sketch-mode-clean) hr,
+body.sketch-mode-handwritten hr {
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--sketch-border-strong),
+    var(--sketch-border-strong) 10px,
+    transparent 10px,
+    transparent 16px
+  );
+}
+
+body.sketch-mode-clean hr {
+  height: 1.5px;
+  background-color: var(--sketch-border);
+}
+
+/* =============================================================================
+   15. OBSIDIAN WORKSPACE, TABS & SIDEBARS
+============================================================================= */
+
+body .workspace-tab-header {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: none;
+  margin-right: 4px;
+  transition: background-color 0.15s ease;
+}
+
+body .workspace-tab-header.is-active {
+  background-color: var(--sketch-bg-paper);
+  box-shadow: 0 -3px 0 var(--sketch-accent) inset, 0 1px 4px rgba(0,0,0,0.06);
+  font-weight: 700;
+}
+
+body .nav-folder-title,
+body .nav-file-title {
+  border-radius: 6px;
+  margin: 2px 4px;
+  padding: 4px 8px;
+  transition: all 0.12s ease;
+  font-family: inherit;
+}
+
+body .nav-file-title.is-active {
+  background-color: var(--sketch-accent-tint);
+  color: var(--sketch-accent-text);
+  font-weight: 700;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.06);
+}
+
+body .nav-file-title:hover:not(.is-active) {
+  background-color: var(--sketch-bg-subtle);
+}
+
+/* General Text Inputs */
+body input[type="text"]:not(.search-input-container input),
+input[type="search"]:not(.search-input-container input),
+input[type="password"],
+input[type="email"],
+input[type="number"],
+textarea {
+  background-color: var(--sketch-bg-card);
+  border: 1.8px solid var(--sketch-border-strong);
+  padding: 6px 12px;
+  color: var(--sketch-ink-main);
+  border-radius: var(--sketch-active-radius-sm);
+  box-shadow: var(--sketch-shadow-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+body input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--sketch-accent);
+  box-shadow: 0 0 0 3px var(--sketch-accent-tint);
+  outline: none;
+}
+
+/* Precise Search Bar & Magnifying Glass Icon Alignment */
+body .search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+body .search-input-container:before {
+  top: 50%;
+  transform: translateY(-50%);
+  inset-inline-start: 10px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--sketch-ink-muted);
+  pointer-events: none;
+  z-index: 3;
+}
+
+body .search-input-container input {
+  background-color: var(--sketch-bg-card);
+  border: 1.8px solid var(--sketch-border-strong);
+  height: 32px;
+  min-height: 32px;
+  max-height: 32px;
+  line-height: 32px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-inline-start: 34px;
+  padding-inline-end: 28px;
+  color: var(--sketch-ink-main);
+  border-radius: var(--sketch-active-radius-sm);
+  box-shadow: var(--sketch-shadow-sm);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+body .search-input-container input:focus {
+  border-color: var(--sketch-accent);
+  box-shadow: 0 0 0 3px var(--sketch-accent-tint);
+  outline: none;
+}
+
+body .search-input-clear-button {
+  top: 50%;
+  transform: translateY(-50%);
+  height: 22px;
+  width: 22px;
+  inset-inline-end: 6px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sketch-ink-muted);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+body .search-input-clear-button:hover {
+  background-color: var(--sketch-bg-subtle);
+  color: var(--sketch-accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Scoped Buttons (Avoid clobbering icon buttons, tab close buttons, and toolbars) */
+body button:not(.clickable-icon):not(.search-input-clear-button):not(.workspace-tab-header-inner-close-button),
+.mod-cta {
+  font-family: inherit;
+  border: 1.8px solid var(--sketch-border-strong);
+  border-radius: var(--sketch-active-radius-sm);
+  padding: 6px 16px;
+  cursor: pointer;
+  box-shadow: var(--sketch-shadow-sm);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body button:not(.clickable-icon):not(.search-input-clear-button):not(.workspace-tab-header-inner-close-button):hover {
+  transform: translateY(-1px);
+  box-shadow: var(--sketch-shadow-card);
+}
+
+body button.mod-cta {
+  background-color: var(--sketch-accent);
+  color: #ffffff;
+  border-color: var(--sketch-accent-hover);
+}
+
+body button.mod-cta:hover {
+  background-color: var(--sketch-accent-hover);
+  transform: translateY(-2px);
+}
+
+body .modal {
+  background-color: var(--sketch-bg-paper);
+  border: 2.5px solid var(--sketch-border-strong);
+  border-radius: var(--sketch-active-radius-card);
+  box-shadow: var(--sketch-shadow-pop);
+}
+
+body .status-bar {
+  background-color: var(--sketch-bg-sidebar);
+  border-top: 1.5px solid var(--sketch-border);
+  font-size: 0.84em;
+  color: var(--sketch-ink-muted);
+}
+
+/* =============================================================================
+   16. WORKSPACE SPLIT DIVIDERS & SIDEBAR DRAG-TO-RESIZE HANDLERS
+============================================================================= */
+
+/* Master resize handle rule */
+body .workspace-leaf-resize-handle {
+  position: absolute;
+  z-index: 35;
+  pointer-events: auto;
+  background-color: transparent;
+  transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Left Sidebar (between file navigation / left dock and editor) */
+body .workspace-split.mod-left-split > .workspace-leaf-resize-handle {
+  width: 8px;
+  right: -4px;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  cursor: col-resize;
+  pointer-events: auto;
+  z-index: 40;
+  border-right: 2px solid var(--sketch-border);
+}
+
+/* Right Sidebar (between editor and right dock) */
+body .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
+  width: 8px;
+  left: -4px;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  cursor: col-resize;
+  pointer-events: auto;
+  z-index: 40;
+  border-left: 2px solid var(--sketch-border);
+}
+
+/* Vertical note splits (side-by-side note panes) */
+body .workspace-split.mod-vertical > * > .workspace-leaf-resize-handle {
+  width: 8px;
+  right: -4px;
+  cursor: col-resize;
+  pointer-events: auto;
+  z-index: 35;
+  border-right: 2px solid var(--sketch-border);
+}
+
+/* Horizontal note splits (stacked top and bottom panes) */
+body .workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle {
+  height: 8px;
+  bottom: -4px;
+  cursor: row-resize;
+  pointer-events: auto;
+  z-index: 35;
+  border-bottom: 2px solid var(--sketch-border);
+}
+
+/* Dragging hover and active feedback */
+body .workspace-leaf-resize-handle:hover,
+body .workspace-leaf-resize-handle.is-active {
+  background-color: var(--sketch-accent);
+  border-color: var(--sketch-accent);
+  opacity: 0.9;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--sketch-border-strong);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sketch-accent);
+}
+
+/* =============================================================================
+   17. SETTINGS TOGGLE SWITCHES (.checkbox-container)
+============================================================================= */
+
+/* Toggle track reset and layout */
+body .checkbox-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+/* Ensure toggle internal input stays fully hidden and out-of-flow with zero dimension leakage */
+body .checkbox-container input[type="checkbox"],
+body.sketch-mode-handwritten .checkbox-container input[type="checkbox"],
+body.sketch-mode-clean .checkbox-container input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  min-width: 0;
+  min-height: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  appearance: none;
+  -webkit-appearance: none;
+  z-index: 1;
+}
+
+/* Ensure no pseudo-element checkmark or glyph renders on the toggle input */
+body .checkbox-container input[type="checkbox"]::after,
+body .checkbox-container input[type="checkbox"]:checked::after {
+  content: none;
+  display: none;
+}
+
+/* Ensure toggle thumb (:after) is strictly anchored to top: 0 with zero vertical drift */
+body .checkbox-container:after,
+body.sketch-mode-handwritten .checkbox-container:after,
+body.sketch-mode-clean .checkbox-container:after {
+  top: 0;
+  bottom: auto;
+  pointer-events: none;
+}
+
+body .modal .checkbox-container:after {
+  top: 0;
+  bottom: auto;
+}
+

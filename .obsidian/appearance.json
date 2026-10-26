@@ -1,5 +1,8 @@
 {
-  "cssTheme": "Minimal",
+  "cssTheme": "Cardinal",
   "translucency": false,
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "showViewHeader": true,
+  "accentColor": "#ff8838",
+  "enabledCssSnippets": []
 }

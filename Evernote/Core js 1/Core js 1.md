@@ -2,11 +2,11 @@
 
 ### Advanced Expressions
 
-- Object.is
+- `Object.is`
 
-	like === but NaN = NaN and -0 != 0
+	like `===` but `NaN = NaN` and `-0 != 0`
 
-- Differences between `let`, `var`, and `const`
+- **Differences** between `let`, `var`, and `const`
 	- var всплывает и индифицируется в undefined. Всплывает и в For, {}
 	- присваивается глобальному объекту window
 	- повторное объявление без ошибки
@@ -48,7 +48,7 @@
 
 ### Closures Advanced
 
-- Understanding execution context and lexical environments.
+- **Understanding** execution context and lexical environments.
 	- контекст выполнения бывает глобальным и функциональным ( то есть создаётся только для глобального кода и каждой функции. Потом по мере выполнения кода эти объекты кладутся в call stack (можно увидеть структуру в дебаггере))
 	- контекст выполнения состоит из стадия создания и стадия выполнения
 	- на создании создаётся объект, который содержит лексическое окружение, this и где код сейчас
@@ -62,7 +62,7 @@
 - <https://tc39.es/ecma262/#sec-block-runtime-semantics-evaluation>
 - <https://262.ecma-international.org/5.1/#sec-10.3>
 
-```
+```typescript
 ExecutionContext: // for global and every function. Create Execution Context Stack or Call stack
 (1) LexicalEnvironment: //function scope, for let and const
         d -> nothing // let const. Before initialization, "nothing" causes an error
@@ -120,7 +120,7 @@ Differences between scope and context.
 - Binding, binding one function twice
 	- невозможно со встроенным Bind. Только если использовать такую реализацию
 
-```
+```Typescript
 Function.prototype.bind = function (context) {
     const targetFunc = this
     return function (...args) {  
@@ -195,7 +195,7 @@ map forEach reduce push pop shift unshift flat sort join split slice splice
 
 - Sorting and custom sorting arrays
 
-```
+```Typescript
 function compare(a, b) { // return a - b или наоборот если работает с числами
   if (a меньше b по некоторому критерию сортировки) {
     return -1; // a ставит слева, б справа

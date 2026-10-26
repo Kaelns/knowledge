@@ -1,6 +1,6 @@
 [
   "obsidian-git",
-  "obsidian-minimal-settings",
-  "obsidian-importer",
-  "obsidian-style-settings"
+  "obsidian-style-settings",
+  "vscode-editor",
+  "editing-toolbar"
 ]
