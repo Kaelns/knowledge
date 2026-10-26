@@ -14,19 +14,19 @@ Legend in sub-plans: **(A2)** = explicitly in the matrix for Middle, **(+)** = m
 
 ## Sub-plans
 
-| # | File | Matrix skills | A2 level |
-|---|------|---------------|----------|
-| 01 | [JavaScript & Browser](./01-javascript.md) | JavaScript, JS in Browser, Browser APIs, JS Dev Tools | Intermediate (Core / Required) |
-| 02 | [TypeScript](./02-typescript.md) | TypeScript | Intermediate (Core) |
-| 03 | [React & ecosystem](./03-react.md) | JS Top Frameworks, ReactJS | Intermediate (Core) |
-| 04 | [Testing](./04-testing.md) | Unit tests (Frameworks), Test Pyramid (SE Practices), Node testing | Intermediate |
-| 05 | [HTML, CSS, a11y](./05-html-css.md) | HTML, CSS, Preprocessors, Methodologies, Frameworks, Cross-browser, Accessibility | HTML/CSS **Advanced**, rest Intermediate, a11y Novice |
-| 06 | [Web platform](./06-web-platform.md) | Protocols, Rendering strategies, Performance, Security, PWA & AMP, CMS | Intermediate / Novice |
-| 07 | [Node.js](./07-nodejs.md) | Node.js, Node.js Core | Novice |
-| 08 | [Engineering](./08-engineering.md) | Design patterns, Software Design, SE Practices, SE Processes, SE Knowledge | Intermediate (patterns Novice) |
-| 09 | [Live coding](./09-live-coding.md) | — practice tasks for the coding round | — |
-| 10 | [Speaking (Gemini Live)](./10-speaking.md) | — speech practice, mock interviews, STAR stories | — |
-| 11 | [T-shape: mobile, cloud, hosting, AI](./11-t-shape.md) | JS Cross-Mobile, Cloud, Hosting, Gen AI Assisted Dev | Cross-mobile Intermediate, AI Intermediate (optional) |
+| #   | File                                                   | Matrix skills                                                                     | A2 level                                              |
+| --- | ------------------------------------------------------ | --------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| 01  | [JavaScript & Browser](./01-javascript.md)             | JavaScript, JS in Browser, Browser APIs, JS Dev Tools                             | Intermediate (Core / Required)                        |
+| 02  | [TypeScript](./02-typescript.md)                       | TypeScript                                                                        | Intermediate (Core)                                   |
+| 03  | [React & ecosystem](./03-react.md)                     | JS Top Frameworks, ReactJS                                                        | Intermediate (Core)                                   |
+| 04  | [Testing](./04-testing.md)                             | Unit tests (Frameworks), Test Pyramid (SE Practices), Node testing                | Intermediate                                          |
+| 05  | [HTML, CSS, a11y](./05-html-css.md)                    | HTML, CSS, Preprocessors, Methodologies, Frameworks, Cross-browser, Accessibility | HTML/CSS **Advanced**, rest Intermediate, a11y Novice |
+| 06  | [Web platform](./06-web-platform.md)                   | Protocols, Rendering strategies, Performance, Security, PWA & AMP, CMS            | Intermediate / Novice                                 |
+| 07  | [Node.js](./07-nodejs.md)                              | Node.js, Node.js Core                                                             | Novice                                                |
+| 08  | [Engineering](./08-engineering.md)                     | Design patterns, Software Design, SE Practices, SE Processes, SE Knowledge        | Intermediate (patterns Novice)                        |
+| 09  | [Live coding](./09-live-coding.md)                     | — practice tasks for the coding round                                             | —                                                     |
+| 10  | [Speaking (Gemini Live)](./10-speaking.md)             | — speech practice, mock interviews, STAR stories                                  | —                                                     |
+| 11  | [T-shape: mobile, cloud, hosting, AI](./11-t-shape.md) | JS Cross-Mobile, Cloud, Hosting, Gen AI Assisted Dev                              | Cross-mobile Intermediate, AI Intermediate (optional) |
 
 Old notes from Junior prep (reuse, don't rewrite): [Core js 1](../../Evernote/Core%20js%201/Core%20js%201.md) · [Core js 2](../../Evernote/Core%20js%202/Core%20js%202.md) (TS, patterns, SOLID, Agile, testing, HTTP, polyfills) · [Programming](../../Evernote/Programming/Programming.md) (Node, React, Redux) · [SQL](../sql/sql.md) · [Node](../nodeJS/nodejs.md)
 

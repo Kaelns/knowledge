@@ -17,6 +17,13 @@
 	- Концепт поднятия всех переменных (и let с const) и функций на самый верх. Первым делом код объявит их. Только к нельзя обращаться до объявления к let и const.
 - The role of polyfills.
 	- Замена нового неподдерживаемого старыми браузерами код на поддерживаемую теми браузерами реализацию
+- Coercion
+  - `+` - If there is not string - **number**, if yes - **string**
+  - `other math operators` - **number**
+  - `comparison operators` - to `primitives` -> both `strings` -> compare by symbols / both `numbers` -> `numbers`
+  - `==` - both strings -> compare by symbols / converts to numbers / `null` & `undefined` to each other and nothing else except themself
+  - `===` - everything by type and value, but not `NaN` and `-0` and `0`
+  - objects - either **valueOf** or **toString**. Has tree **hints** - `number`, `string` and `default`. Default one is in case when `+` and `==` involved, then tries `valueOf` 
 
 ### Functions
 
