@@ -1,7 +1,9 @@
 # 11 · T-shape: cross-mobile, cloud, hosting, Gen AI
 
 Matrix (A2): **JS Cross-Mobile Platform: Intermediate** (new, required) · Gen AI Assisted Development: Intermediate *(optional)* · Cloud Fundamentals & Web App Hosting: *not applicable* for A2, but basic awareness is cheap and makes answers about deployment stronger.
-Phase 2: Wed Nov 4 (mobile) and Thu Nov 5 (cloud, hosting, AI).
+Pass 2: "Workday 3" in the schedule (key questions only).
+
+**Pass 2 only.** P2: React Native vs React DOM, RN vs Ionic vs PWA, publishing. P3: cloud models, hosting, Gen AI (just prepare 2 stories from my Claude Code use).
 
 ## Cross-mobile (A2 Intermediate)
 

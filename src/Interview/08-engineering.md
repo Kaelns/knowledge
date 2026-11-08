@@ -3,6 +3,8 @@
 Matrix (A2): Design patterns **Novice** (new) · Software Design **Intermediate** · SE Practices **Intermediate** · SE Processes **Intermediate** · SE Knowledge & Experience **Intermediate**.
 Old notes: [Core js 2 → Patterns, SOLID, Methodologies, Testing](../../Evernote/Core%20js%202/Core%20js%202.md#design-patterns) · [SQL](../sql/sql.md).
 
+**Pass 1 priority.** P1: 5 patterns with frontend examples, SOLID, merge vs rebase, branching strategies, Scrum/Kanban, DoR/DoD, estimation, CI/CD pipeline. P2: GRASP, architecture patterns, Docker vs VM, deploy strategies, Big-O + basic DS, SQL JOINs, symmetric vs asymmetric crypto. P3: licenses, networks OSI, S-SDLC details.
+
 ## Checklist
 
 ### Design patterns & software design

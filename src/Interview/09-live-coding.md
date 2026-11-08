@@ -3,7 +3,7 @@
 Rules: 20–30 min per task, **talk aloud while coding** (that's what the interviewer evaluates), start with clarifying questions + edge cases, then code, then test with examples.
 Old solutions: [Core js 2 → Coding Task Examples](../../Evernote/Core%20js%202/Core%20js%202.md#coding-task-examples), so redo them from scratch, don't re-read.
 
-## Set A: JavaScript (Phase 1 evenings + Mon Nov 2)
+## Set A: JavaScript (4 tasks Sun Nov 1, rest in Pass 2)
 
 - [ ] `debounce(fn, ms)` and `throttle(fn, ms)` (keep `this` and args; bonus: `cancel()`, leading/trailing)
 - [ ] `memoize(fn)` with a custom key resolver
@@ -18,7 +18,7 @@ Old solutions: [Core js 2 → Coding Task Examples](../../Evernote/Core%20js%202
 - [ ] `get(obj, 'a.b[0].c', default)`
 - [ ] Predict output: 5 tricky `this` / closure / event-loop snippets
 
-## Set B: TypeScript + React (Sat Nov 7)
+## Set B: TypeScript + React (Pass 2, day off 2)
 
 - [ ] Type utils: `DeepPartial<T>`, `PickByValue<T, V>`, `ElementType<T>`, typed `groupBy<T, K extends PropertyKey>`
 - [ ] `useDebounce(value, ms)`, `useFetch(url)` with abort + loading/error state, `useLocalStorage<T>(key, initial)`, `usePrevious`
@@ -30,7 +30,7 @@ Old solutions: [Core js 2 → Coding Task Examples](../../Evernote/Core%20js%202
 - [ ] Find & fix bugs in a given component (stale closure in `useEffect`, missing deps, mutating state, index keys)
 - [ ] Write tests for one of the above with RTL + user-event (ties to [04](./04-testing.md))
 
-## Set C: Algorithms (pick 1/day in Phase 2)
+## Set C: Algorithms (pick 1/day in Pass 2)
 
 See the LeetCode list in [08](./08-engineering.md#hands-on). Always state the Big-O at the end.
 

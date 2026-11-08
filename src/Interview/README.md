@@ -1,16 +1,19 @@
 # Middle (A2) Frontend Interview Prep
 
 Goal: pass the **A1 Junior → A2 Software Engineer** assessment (Primary skill: JavaScript Frontend).
-Interview: **not earlier than Nov 9, 2026**. Phase 1 makes me interview-ready; Phase 2 closes gaps and covers optional / T-shape skills.
+Interview: **not earlier than Nov 9, 2026**. **Pass 1** = breadth: touch every likely question once. **Pass 2** = depth only where the mock interview shows gaps + optional skills.
 
-## How to use
+## How to use: speed rules (breadth first)
 
-1. Each day: open the day's sub-plan files, go through the **checklist → questions → hands-on** blocks.
-2. Last 15–20 min of every session: **explain-back with Gemini Live** ([10-speaking.md](./10-speaking.md)).
-3. Tick `- [ ]` boxes in the sub-plans; write anything I couldn't explain into the **Gaps log** at the bottom.
-4. Write new knowledge into the sub-plan files (short) – they become my interview cheat sheets.
+1. **Start from "Key questions"**, not the checklist. Answer each one aloud in ≤1 min.
+   - Can answer → tick, move on.
+   - Can't → look it up, **max 10 min**, write a ≤3-line note, move on.
+2. **Checklist = scan only.** Read the line, ask "could I explain this in 2 sentences?" If yes, skip. Don't write notes for things I already know.
+3. **Time-box every block** (times in the schedule). When the timer rings, move on and dump leftovers into the **Gaps log**. Unfinished ≠ failed; Pass 2 exists for that.
+4. **Pass 1 skips** every `(+)` item and every **P3** topic (see the priority line at the top of each sub-plan). Hands-on in Pass 1 is only the testing kata and live coding set A.
+5. Last 15 min of a session: **explain-back with Gemini Live** ([10-speaking.md](./10-speaking.md)) on what I just covered.
 
-Legend in sub-plans: **(A2)** = explicitly in the matrix for Middle, **(+)** = my extra, interviewers often ask it.
+Legend in sub-plans: **(A2)** = explicitly in the matrix for Middle, **(+)** = my extra (Pass 2). **P1** = asked in almost every interview, **P2** = often asked, **P3** = rare / optional.
 
 ## Sub-plans
 
@@ -30,33 +33,32 @@ Legend in sub-plans: **(A2)** = explicitly in the matrix for Middle, **(+)** = m
 
 Old notes from Junior prep (reuse, don't rewrite): [Core js 1](../../Evernote/Core%20js%201/Core%20js%201.md) · [Core js 2](../../Evernote/Core%20js%202/Core%20js%202.md) (TS, patterns, SOLID, Agile, testing, HTTP, polyfills) · [Programming](../../Evernote/Programming/Programming.md) (Node, React, Redux) · [SQL](../sql/sql.md) · [Node](../nodeJS/nodejs.md)
 
-## Phase 1: get interview-ready (Oct 26 – Nov 1)
+## Pass 1: breadth (Tue Oct 27 – Sun Nov 1)
 
-Time: ~2h tonight, 3–4h Tue–Wed after work, ~6h on each day off (Thu–Sun). **≈ 33h**.
+Workdays ~3h, days off ~7h. **≈ 34h.** Mon 26 done: JS language core (most of it).
 
-| Day | Time | Focus | Files |
-|-----|------|-------|-------|
-| **Mon 26** (evening) | 2h | Self-assessment against the tracker below (30m) · JS core refresh: scope, closures, `this`, prototypes · create the **lab repo** (see 04 → Setup) | 01, 04 |
-| **Tue 27** | 3.5h | JS async + event loop, Browser APIs, DevTools · TS part 1 (A1 list as a quick check) | 01, 02 |
-| **Wed 28** | 3.5h | TS A2 list (narrowing, mapped/template types, tsconfig) · React core: refs, forms, context, performance | 02, 03 |
-| **Thu 29** | 6h | React ecosystem: Redux Toolkit + thunk, React Query, router, React 19/Compiler, patterns (4h) · HTML/CSS/Sass/BEM/Tailwind/a11y (2h) | 03, 05 |
-| **Fri 30** | 6h | **Testing day**: Vitest + RTL + user-event + MSW + hooks/Redux/React Query tests + Playwright. Mostly hands-on in the lab repo | 04 |
-| **Sat 31** | 6h | Web platform: HTTP, caching, auth/cookies, CORS, rendering strategies, security (4h) · Node.js core (2h) | 06, 07 |
-| **Sun 1** | 6h | Engineering: patterns, SOLID/GRASP, architecture, Git/CI/CD/Docker, Agile/estimation, algorithms, SQL (4h) · **Mock interview #1** with Gemini (1h) · write the Gaps log (1h) | 08, 10 |
+| Day | Time-boxes | Files |
+|-----|-----------|-------|
+| **Tue 27** | Rest of JS core via key questions (1h) · Async + event loop (1h) · Browser APIs + DevTools: skim (45m) · Gemini (15m) | 01 |
+| **Wed 28** | TypeScript: key questions + A2 checklist scan (1.5h) · 5 easy type-challenges (45m) · React fundamentals (45m) | 02, 03 |
+| **Thu 29** | React: hooks, refs, forms, context, performance, Compiler (2h) · Redux + React Query + router (1.5h) · lab repo setup (30m) · Testing theory + Vitest + RTL queries (2h) · Gemini (30m) | 03, 04 |
+| **Fri 30** | Testing kata 1–6 (3.5h) · HTML/CSS/Sass/BEM/Tailwind/a11y key questions (2h) · Playwright skim + kata 7 (1h) · Gemini (30m) | 04, 05 |
+| **Sat 31** | Web: HTTP, caching, cookies/JWT, CORS, TLS (1.5h) · Security: XSS/CSRF/CSP (1h) · Rendering strategies (45m) · Node key questions (1h) · Engineering: patterns, SOLID, Git, CI/CD, Agile/estimation (2h) · Gemini (45m) | 06, 07, 08 |
+| **Sun 1** | Engineering rest: Docker, deploy strategies, algorithms, SQL, crypto (1.5h) · Live coding set A, 4 tasks (2h) · Project pitch + 3 STAR stories (1h) · **Mock interview #1** (1h) · sort the Gaps log by priority (1h) | 08, 09, 10 |
 
-## Phase 2: deep dive + optional + loose ends (Nov 2 – Nov 8)
+## Pass 2: gaps + depth + optional (Mon Nov 2 – Sun Nov 8)
 
-Time: ~3h on workdays, ~5h on the weekend. **≈ 25h**.
+3 workdays ~3h + **2 extra days off** ~7h + weekend. **≈ 30h.** Put the 2 days off where the heavy blocks are (e.g. Thu–Fri), shift the rest.
 
 | Day | Focus | Files |
 |-----|-------|-------|
-| **Mon 2** | Fix top gaps from mock #1 · live coding set A (JS) | Gaps log, 09 |
-| **Tue 3** | Optional skills: Web Performance deep dive (DevTools Performance panel, Lighthouse, Core Web Vitals, bundle analysis) · PWA & AMP (service worker, manifest) | 06 |
-| **Wed 4** | T-shape: React Native basics (A2 = Intermediate!) · CMS (headless CMS concepts) | 11, 06 |
-| **Thu 5** | Cloud & hosting basics, Docker hands-on, deployment strategies · Gen AI assisted dev (MCP, CLAUDE.md, agent workflows) | 11, 08 |
-| **Fri 6** | Deep research: React internals (Fiber, reconciliation, RSC), TS compiler / module resolution, Node streams · CS: data structures implementation, symmetric/asymmetric crypto | 03, 02, 07, 08 |
-| **Sat 7** | **Mock interview #2** (full, 1.5h) · live coding set B · fix gaps | 10, 09 |
-| **Sun 8** | Light day: re-read all "Key questions", rehearse project pitch + STAR stories, rest | all |
+| **Workday 1** | Top 5 P1 gaps from mock #1 · live coding set A (rest) | Gaps log, 09 |
+| **Workday 2** | P3 optional: Web Performance (Core Web Vitals, Lighthouse), PWA & AMP, CMS: key questions only | 06 |
+| **Workday 3** | React Native (A2 Intermediate) + cloud/hosting + Gen AI: key questions only | 11 |
+| **Day off 1** | Deep dives on the weakest P1 areas from mock #1 (testing / TS / React, whichever ranked lowest) · `(+)` items in 01–03 · type-challenges medium | 01–04 |
+| **Day off 2** | Live coding set B (3h) · remaining hands-on in 05–08 (Docker, Git rebase, SQL joins) · **Mock interview #2** (1.5h) | 09, 10, 08 |
+| **Sat 7** | Fix gaps from mock #2 · Pass-2 depth topics (React internals, Node streams, TS compiler) only if P1 is solid | Gaps log |
+| **Sun 8** | Light: re-answer all "Key questions" aloud, rehearse pitch + STAR, rest | all |
 
 ## After Nov 9: maintenance (30–45 min/day until the interview)
 
@@ -68,7 +70,7 @@ Time: ~3h on workdays, ~5h on the weekend. **≈ 25h**.
 
 Rate 0–3 (0 = never heard, 1 = heard/read, 2 = can explain, 3 = can explain **and** code it). Target before the interview: **3** for Core, **2** for Required/Optional.
 
-| Area | Start | After Ph.1 | After Ph.2 |
+| Area | Start | After Pass 1 | After Pass 2 |
 |------|-------|-----------|-----------|
 | JS core + async | | | |
 | Browser & Browser APIs | | | |

@@ -3,6 +3,8 @@
 Matrix (A2): **HTML: Advanced** · **CSS: Advanced** (both Core) · CSS Preprocessors, CSS Methodologies, CSS Frameworks, Cross-browser markup: Intermediate · Frontend Accessibility: Novice.
 My stack: Tailwind + shadcn/ui (Radix primitives).
 
+**Pass 1 priority.** P1: specificity/cascade, flex vs grid, positioning + stacking context, semantic HTML, forms, responsive/media queries, BEM vs CSS Modules vs Tailwind. P2: custom properties/theming, Sass `@use`/mixins, a11y basics, cross-browser (Autoprefixer, `@supports`). P3: rare tags, container queries, CSS-in-JS details.
+
 ## Checklist
 
 ### HTML (A2 Advanced)

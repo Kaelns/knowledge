@@ -2,9 +2,11 @@
 
 Matrix: "Ability to write unit tests" (Frameworks, Intermediate) · "Ability to create tests on different levels of Test Pyramid" (SE Practices, **A2**) · Node.js Testing.
 My stack: **Vitest**, React Testing Library, MSW (+ Orval mocks), Playwright, a bit of Cypress, Storybook.
-This is my weakest area: **reading tests ≠ writing tests**. Friday is fully hands-on.
+This is my weakest area: **reading tests ≠ writing tests**. Fri Oct 30 is mostly hands-on.
 
-## Setup: lab repo (do it Monday, 30 min)
+**Pass 1 priority.** P1 (all hands-on): pyramid, RTL query priority, `getBy`/`queryBy`/`findBy`, user-event, MSW, testing Redux/React Query components, mocks vs stubs. P2: fake timers, `renderHook`, Playwright basics, flaky tests. P3: Storybook `play`, performance-testing tools.
+
+## Setup: lab repo (Thu Oct 29, 30 min)
 
 ```bash
 npm create vite@latest interview-lab -- --template react-ts
@@ -20,9 +22,21 @@ npx playwright install chromium
 ## Checklist
 
 ### Theory
-- [ ] Test pyramid (unit → integration → e2e) vs **testing trophy** (Kent C. Dodds: most value in integration); cost/speed/confidence trade-offs
-- [ ] Unit vs integration vs e2e vs visual/screenshot vs contract vs smoke vs regression; static analysis (TS, ESLint) as the base layer
-- [ ] AAA (Arrange-Act-Assert), one behaviour per test, test **behaviour not implementation**
+- [x] Test pyramid (unit → integration → e2e) vs **testing trophy** (Kent C. Dodds: most value in integration); cost/speed/confidence trade-offs
+
+| Layer / Type | Scope                                  | Primary Purpose                                     | Cost / Speed        | Modern JS Tooling                     |
+| :----------- | :------------------------------------- | :-------------------------------------------------- | :------------------ | :------------------------------------ |
+| Static       | Entire codebase (100%)                 | Catch syntax, types, and logic bugs at compile-time | Instant / Free      | TypeScript, ESLint, Biome             |
+| Unit         | Single isolated function/hook          | Test complex logic, edge cases, algorithms          | Very Fast / Cheap   | Vitest, Jest                          |
+| Integration  | Component trees + state + network mock | Test real user interactions within UI features      | Fast / Medium       | React Testing Library + MSW           |
+| E2E          | Full stack + real browser              | Verify critical business paths end-to-end           | Slow / Expensive    | Playwright, Cypress                   |
+| Visual       | UI pixels / styles                     | Catch CSS regressions, layout breaks, clipping      | Medium              | Chromatic, Storybook, Playwright      |
+| Contract     | API interface (FE ↔ BE)                | Prevent API drift between frontend and backend      | Fast / Cheap        | Pact, Zod / OpenAPI                   |
+| Smoke        | Shallow critical health checks         | Ensure the deployed app isn't dead on arrival       | Very Fast           | Playwright, cURL / HTTP checks        |
+| Regression   | Accumulated test suite                 | Ensure changes didn't break existing behavior       | Varies (suite-wide) | Any runner in CI (Vitest, Playwright) |
+- [x] Unit vs integration vs e2e vs visual/screenshot vs contract vs smoke vs regression; static analysis (TS, ESLint) as the base layer
+- smoke - shallow fast test if app works - you plug in a new piece of electronic equipment, **if you see smoke, you immediately unplug it**
+- [x] AAA (Arrange-Act-Assert), one behaviour per test, test **behaviour not implementation**
 - [ ] Test doubles: dummy, stub, spy, mock, fake; when mocking hurts
 - [ ] TDD (red → green → refactor), BDD (Given/When/Then); coverage metrics and why 100% is not the goal
 - [ ] Flaky tests: causes (timing, shared state, network, order) and fixes
@@ -71,7 +85,7 @@ npx playwright install chromium
 10. What's the `act()` warning?
 11. What would you **not** test?
 
-## Hands-on kata (Friday, in this order, ~6h)
+## Hands-on kata (kata 1–6 Fri Oct 30 ~3.5h, kata 7 ~1h, 8–9 in Pass 2)
 
 1. [ ] Pure function TDD: `formatPrice`, `slugify`, `groupBy` with `it.each` (30m)
 2. [ ] `useDebounce` / `useCounter` hook with `renderHook` + fake timers (30m)

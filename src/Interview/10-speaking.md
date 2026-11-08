@@ -1,6 +1,6 @@
 # 10 · Speaking practice with Gemini Live
 
-Two drills: **explain-back** (daily, 15–20 min) and **mock interview** (Sun Nov 1, Sat Nov 7, then weekly).
+Two drills: **explain-back** (daily, 15–20 min) and **mock interview** (#1 Sun Nov 1, #2 on Pass-2 day off 2, then weekly).
 Tip: copy the prompt into a Gemini chat first, then switch to Live (voice). Speak English the whole time.
 
 ## Drill 1: explain-back (end of every session)

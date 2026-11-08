@@ -8,13 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "6bf1aeb661ef1f0b",
+            "id": "33e0d25aa10c0ce4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "src/Interview/README.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -22,35 +22,77 @@
             }
           },
           {
-            "id": "94a0faac8cd8e222",
-            "type": "leaf",
-            "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": "src/Interview/01-javascript.md",
-                "bFile": "src/Interview/01-javascript.md",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: 01-javascript  (Working Tree)"
-            }
-          },
-          {
-            "id": "072c98b6b340e2b8",
+            "id": "2e9e4db68dc1fbef",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Evernote/Core js 1/Core js 1.md",
+                "file": "src/Interview/01-javascript.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Core js 1"
+              "title": "01-javascript"
+            }
+          },
+          {
+            "id": "a51c427f2877f1cf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "src/Interview/04-testing.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "04-testing"
+            }
+          },
+          {
+            "id": "0389e894784902bc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "src/Interview/05-html-css.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "05-html-css"
+            }
+          },
+          {
+            "id": "b7c8773fc1252dc8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "src/Interview/06-web-platform.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "06-web-platform"
+            }
+          },
+          {
+            "id": "a8a18148edabd1be",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Evernote/Core js 2/Core js 2.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Core js 2"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -226,21 +268,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "94a0faac8cd8e222",
+  "active": "0389e894784902bc",
   "lastOpenFiles": [
-    "src/Interview/01-javascript.md",
-    "src/Interview/README.md",
-    "Evernote/Core js 1/Core js 1.md",
-    "src/Interview/02-typescript.md",
-    "src/Interview/10-speaking.md",
-    "src/Interview/04-testing.md",
-    "src/Interview/11-t-shape.md",
-    "src/Interview/09-live-coding.md",
-    "src/Interview/08-engineering.md",
-    "src/Interview/07-nodejs.md",
     "src/Interview/06-web-platform.md",
     "src/Interview/05-html-css.md",
+    "src/Interview/04-testing.md",
     "src/Interview/03-react.md",
+    "src/Interview/02-typescript.md",
+    "src/Interview/README.md",
+    "src/Interview/01-javascript.md",
+    "Evernote/Programming/Programming.md",
+    "src/Interview/08-engineering.md",
+    "src/Interview/07-nodejs.md",
+    "Evernote/Core js 2/Core js 2.md",
+    "Evernote/Core js 1/Core js 1.md",
+    "src/Interview/10-speaking.md",
+    "src/Interview/11-t-shape.md",
+    "src/Interview/09-live-coding.md",
     "src/Ai/AI.md",
     "src/Interview",
     "src/Web/Web.md",
@@ -249,13 +293,11 @@
     "src/Web/assets/Pasted image 20261016135515.png",
     "src/Web/assets",
     "src/Web",
-    "Evernote/Core js 2/Core js 2.md",
     "Untitled.base",
     "Untitled 1.base",
     "Untitled 2.base",
     "Untitled 3.base",
     "src/nodeJS/scripts/eventLoop.cjs",
-    "Evernote/Programming/Programming.md",
     "src/sql/sql.md",
     "src/nodeJS/nodejs.md",
     "Evernote/Untitled.canvas",

@@ -3,6 +3,8 @@
 Matrix (T-shape, new at A2): **Node.js** Novice · **Node.js Core** Novice. Not required at A1, so expect basic but broad questions.
 Old notes: [nodejs.md](../nodeJS/nodejs.md) (event loop) · [Programming → Node](../../Evernote/Programming/Programming.md#node).
 
+**Pass 1 priority.** P1: runtime vs browser, event loop phases + `nextTick`, CJS vs ESM, npm/package.json, async error handling. P2: core modules (fs/path/process), EventEmitter, JWT middleware, debugging. P3: streams, JSDoc, loggers, `node:test`.
+
 ## Checklist
 
 - [ ] **Runtime**: V8 + libuv, single JS thread + thread pool (fs, crypto, dns), what differs from browser JS (no DOM/`window`, `global`/`globalThis`, `process`, `Buffer`, fs/network access)
@@ -33,7 +35,7 @@ Old notes: [nodejs.md](../nodeJS/nodejs.md) (event loop) · [Programming → Nod
 7. How does JWT authentication work end-to-end?
 8. How would you debug a Node script?
 
-## Hands-on (2h on Saturday)
+## Hands-on (Pass 2)
 
 - [ ] CLI script: read a JSON file from `process.argv[2]`, transform it, write the output with `fs/promises`; handle missing file errors
 - [ ] Tiny Express (or `node:http`) API: `POST /login` returns JWT, `GET /me` protected by middleware, pino logs
