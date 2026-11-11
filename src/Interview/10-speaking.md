@@ -24,7 +24,7 @@ After the session: write missed points into the README **Gaps log**.
 
 ```text
 Act as a strict technical interviewer at a large IT company. You are assessing me for promotion
-from Junior to Middle JavaScript Frontend Engineer (React, TypeScript, Redux, React Query, Vitest, Playwright).
+from Junior to Middle JavaScript Frontend Engineer (React, TypeScript, Redux, React Query, Vitest Browser Mode, Cypress).
 Structure the interview:
 1) 2 min: ask me to introduce myself and my current project,
 2) 30 min: theory: JavaScript, TypeScript, React, testing, web/HTTP/security, CSS,
@@ -48,15 +48,15 @@ Keep it to ~1 minute; let the interviewer pull more.
 
 ## Prepare these stories (write them here, then rehearse)
 
-- [ ] **Project pitch** (60–90s): product, team size, my role, stack (React, Redux, React Query + Orval, shadcn/Tailwind, Storybook, Vitest/Playwright, React Compiler), what I own
-- [ ] **STAR**: a hard bug I debugged (Situation, Task, Action, Result)
-- [ ] **STAR**: a feature I delivered end-to-end, incl. estimation and testing
-- [ ] **STAR**: a disagreement in code review / with a teammate and how it was resolved
-- [ ] **STAR**: something I improved in the process or codebase (matches A2 "propose improvements")
-- [ ] **STAR**: a mistake I made and what I learned
-- [ ] How I use AI tools in my daily work (see [11](./11-t-shape.md#gen-ai-assisted-development-optional-a2-intermediate))
-- [ ] Why I deserve Middle: 3 concrete arguments
-- [ ] My questions to the interviewer (2–3)
+- [ ] 🔴 CORE **Project pitch** (60–90s): product, team size, my role, stack (React, Redux, React Query + Orval, shadcn/Tailwind, Storybook, Vitest Browser Mode + vitest-browser-react, Cypress, React Compiler), what I own
+- [ ] 🔴 CORE **STAR**: a hard bug I debugged (Situation, Task, Action, Result)
+- [ ] 🔴 CORE **STAR**: a feature I delivered end-to-end, incl. estimation and testing
+- [ ] 🟡 SHALLOW **STAR**: a disagreement in code review / with a teammate and how it was resolved
+- [ ] 🔴 CORE **STAR**: something I improved in the process or codebase (matches A2 "propose improvements")
+- [ ] 🟡 SHALLOW **STAR**: a mistake I made and what I learned
+- [ ] 🟡 SHALLOW How I use AI tools in my daily work (see [11](./11-t-shape.md#gen-ai-assisted-development-optional-a2-intermediate))
+- [ ] 🔴 CORE Why I deserve Middle: 3 concrete arguments
+- [ ] 🟡 SHALLOW My questions to the interviewer (2–3)
 
 ## Useful phrases
 

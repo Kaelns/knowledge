@@ -1,136 +1,166 @@
 # Core js 1
 
+Junior-prep notes (cleaned up). Linked from the interview plan: [[src/Interview/README|Interview prep]].
+`> [!warning] Fix` boxes = places where the old note was wrong or incomplete.
+
+## ECMAScript Basics
+
 ### Advanced Expressions
 
-- `Object.is`
+#### Object.is
 
-	like `===` but `NaN = NaN` and `-0 != 0`
+Like `===`, but `Object.is(NaN, NaN) === true` and `Object.is(-0, 0) === false`.
 
-- **Differences** between `let`, `var`, and `const`
-	- var всплывает и индифицируется в undefined. Всплывает и в For, {}
-	- присваивается глобальному объекту window
-	- повторное объявление без ошибки
-	- var только функциональная область видимости
-- Exploring the Temporal Dead Zone.
-	- Зона, в которой нельзя обратится к переменной до того, пока до неё не дойдёт код. Будет ошибка Refference Error (кроме function declaration and vars).
-- Concepts of Hoisting.
-	- Концепт поднятия всех переменных (и let с const) и функций на самый верх. Первым делом код объявит их. Только к нельзя обращаться до объявления к let и const.
-- The role of polyfills.
-	- Замена нового неподдерживаемого старыми браузерами код на поддерживаемую теми браузерами реализацию
-- Coercion
-  - `+` - If there is not string - **number**, if yes - **string**
-  - `other math operators` - **number**
-  - `comparison operators` - to `primitives` -> both `strings` -> compare by symbols / both `numbers` -> `numbers`
-  - `==` - both strings -> compare by symbols / converts to numbers / `null` & `undefined` to each other and nothing else except themself
-  - `===` - everything by type and value, but not `NaN` and `-0` and `0`
-  - objects - either **valueOf** or **toString**. Has tree **hints** - `number`, `string` and `default`. Default one is in case when `+` and `==` involved, then tries `valueOf` 
+#### let, var and const
+
+- `var` всплывает и инициализируется `undefined`. Не имеет блочной области: «вылезает» из `for`, `{}`
+- `var` в глобальном коде становится свойством `window`
+- повторное объявление `var` без ошибки
+- `var` — только функциональная область видимости
+- `let` / `const` — блочная область, TDZ, повторное объявление → ошибка; `const` нельзя переприсвоить (но объект внутри можно мутировать)
+
+#### Temporal Dead Zone
+
+Зона, в которой нельзя обратиться к переменной, пока до её объявления не дошёл код → `ReferenceError` (кроме function declaration и `var`).
+
+#### Hoisting
+
+Концепт «поднятия» объявлений переменных (и `let` с `const` тоже) и функций наверх их области: движок сначала регистрирует все объявления. Но к `let` и `const` нельзя обращаться до объявления (TDZ), `var` = `undefined`, function declaration доступна целиком.
+
+#### Polyfills
+
+Замена новой функциональности, не поддерживаемой старыми браузерами, на реализацию, которую эти браузеры поддерживают (например `Array.prototype.flat`). Синтаксис (`?.`, классы) полифилом не закрыть — его транспилирует Babel/TS.
+
+#### Coercion
+
+- `+` — если нет строки → **number**, если есть строка → **string**
+- остальные математические операторы → **number**
+- операторы сравнения → к примитивам → обе строки — сравнение посимвольно / иначе к числам
+- `==` — обе строки → посимвольно / иначе к числам / `null` и `undefined` равны только друг другу и себе
+- `===` — по типу и значению, но `NaN !== NaN` и `-0 === 0`
+- объекты → `Symbol.toPrimitive`, затем **valueOf** или **toString**. Три **hint**: `number`, `string` и `default`. `default` — при `+` и `==`, тогда сначала пробует `valueOf`
 
 ### Functions
 
-- Differences and uses of arrow functions, function expressions, and function declarations.
-	- function declarations всплывает и можно использовать до объявления
-	- function expressions не всплывает
-	- arrow functions не имеет this, arguments, new, super (она получает this во время создания)
+#### Arrow functions vs function expressions vs declarations
+
+- function declaration всплывает, можно вызвать до объявления
+- function expression не всплывает (переменная есть, функции ещё нет)
+- arrow function не имеет своих `this`, `arguments`, `super`, нельзя вызвать через `new`; `this` берётся из внешнего лексического окружения в момент создания
 
 ### Functional Scope
 
-по сути scope это концепция и в js её реализует lexical Enviroment
+По сути scope — это концепция, а в JS её реализует Lexical Environment.
 
-- Global scope vs. functional scope
-	- global scope это window или global ( последний в цепочке областей видимости )
-	- функциональный в функции
-- Variable visibility areas.
-	- let const в любой блочной или функциональной области видимости
-- Working with nested scopes.
-	- с наружного в внутренний доступа нет, с внутреннего  к наружному - есть
+#### Global vs functional scope
 
-### Functions Parameters / Arguments
+- global scope — `window` / `globalThis` (последний в цепочке областей видимости)
+- функциональный — внутри функции
 
-- Defining function parameters.
-	- function (a, b, c). Параметры создаются во время выполнения функции. аргументы - значения, которые передаются функции
-- Differences in parameters passing by value and by reference.
-	- значения копируются, на ссылочные  копируется ссылка. Опасность в мутации
-- Handling a dynamic amount of function parameters.
-	- arguments или ...rest
+#### Variable visibility
+
+`let` / `const` видны в любой блочной или функциональной области, где объявлены.
+
+#### Nested scopes
+
+Снаружи во внутреннюю область доступа нет, изнутри к внешней — есть.
+
+### Function Parameters and Arguments
+
+#### Parameters vs arguments
+
+`function (a, b, c)` — параметры, создаются при вызове функции. Аргументы — значения, которые передаются функции.
+
+#### Passing by value and by reference
+
+Примитивы копируются; у объектов копируется ссылка. Опасность — мутация переданного объекта.
+
+#### Dynamic amount of parameters
+
+`arguments` или `...rest`.
 
 ### Closures Advanced
 
-- **Understanding** execution context and lexical environments.
-	- контекст выполнения бывает глобальным и функциональным ( то есть создаётся только для глобального кода и каждой функции. Потом по мере выполнения кода эти объекты кладутся в call stack (можно увидеть структуру в дебаггере))
-	- контекст выполнения состоит из стадия создания и стадия выполнения
-	- на создании создаётся объект, который содержит лексическое окружение, this и где код сейчас
-	- lexical environments - контейнер с переменным ( record ) и ссылкой на наружный lexical environments ( outer). Он реализует концепт области видимости в js!
-	- всем функциям данной области присваивается текущий `[[Environment]]`
+#### Execution context and lexical environment
 
-Для заумных
+- контекст выполнения бывает глобальным и функциональным (создаётся для глобального кода и для каждого вызова функции). Контексты кладутся в call stack (видно в дебаггере)
+- контекст выполнения проходит стадию создания и стадию выполнения
+- на создании создаётся объект, который содержит лексическое окружение, `this` и текущее место выполнения кода
+- lexical environment — контейнер с переменными (environment record) и ссылкой на внешний lexical environment (`outer`). Он и реализует концепт области видимости в JS
+- каждой функции при создании присваивается текущий `[[Environment]]` → **замыкание** = функция + ссылка на окружение, где она создана
 
-- As of ES6 it's not true in general that the variable environment contains "the variables and functions". It only contains variables declared with var, as let and const use the lexical environment.
+Для заумных:
+
+- As of ES6 it's not true in general that the variable environment contains "the variables and functions". It only contains variables declared with `var`, as `let` and `const` use the lexical environment.
 - <https://stackoverflow.com/questions/23948198/variable-environment-vs-lexical-environment>
 - <https://tc39.es/ecma262/#sec-block-runtime-semantics-evaluation>
 - <https://262.ecma-international.org/5.1/#sec-10.3>
 
 ```typescript
-ExecutionContext: // for global and every function. Create Execution Context Stack or Call stack
-(1) LexicalEnvironment: //function scope, for let and const
-        d -> nothing // let const. Before initialization, "nothing" causes an error
-        outer: global // outer is taken from [[Enviroment]] property (Enviroment in which func were created) of the function. It is set when function creates
-            LexicalEnvironment //block scope (for, while, if, {}). Creates on a moment of block execution where func lexical env sets to outer. For let and const too
+ExecutionContext: // for global code and every function call. Lives in the Execution Context Stack (call stack)
+(1) LexicalEnvironment: // function scope, for let and const
+        d -> nothing // let/const before initialization: "nothing" causes an error (TDZ)
+        outer: global // taken from the function's [[Environment]] (where the function was created)
+            LexicalEnvironment // block scope (for, while, if, {}). Created when the block runs, outer = (1)
                 b -> 2
                 outer: (1)
-    VariableEnvironment: // function and ineer block scopes for function declaration and var
-        a -> 1, c -> undefined, func -> {} // function and also all inner block scopes for function declaration and var (var and function declarations doesn't have doesn't have block scope)
+    VariableEnvironment: // var and function declarations (they have no block scope)
+        a -> 1, c -> undefined, func -> {}
         outer: global
-    ...
-    This: global //How you call function. Object before method
-    [where the code interpretator now]: 134:14
+    This: global // depends on HOW the function is called
+    [where the interpreter is now]: 134:14
 ```
 
 ![[Evernote/Core js 1/assets/image.png|image.png]]
-В этом моменте когда интерпретатор доходит до блока, то он для него создаёт новое лексическое оружение и ставит его как выполняемый для функции/глобального кода. А в конце выходит из него и ставит опять наружный
-Все вары и декларации функции залетают в окружение переменных
 
-Differences between scope and context.
+Когда интерпретатор доходит до блока, он создаёт для него новое лексическое окружение и делает его текущим для функции / глобального кода. В конце блока выходит из него и снова ставит внешнее.
+Все `var` и function declaration попадают в окружение переменных.
 
-- this никак не относится в области видимости и вычисляется (не ищется в области) в зависимости от того, как вызвана функция
+#### Scope vs context
 
-- The mechanism of lexical environment traversal.
-	- идёт как по областям видимости, с внутренней на наружную. Это же концепт области видимости
-- Connection between function and its lexical environment.
-	- функция -> свой контекст выполнения -> своё лексическое окружение
+`this` никак не относится к области видимости: он не ищется по цепочке областей, а вычисляется в зависимости от того, **как вызвана** функция.
+
+#### Lexical environment traversal
+
+Поиск идёт по областям видимости — от внутренней к внешней по ссылкам `outer`. До глобальной; не нашли → `ReferenceError`.
+
+Связь функции и окружения: функция → свой контекст выполнения → своё лексическое окружение (`outer` = `[[Environment]]` функции).
 
 ### Advanced Functions
 
-- `this` in functions
+#### this in functions
 
-	Зависит от как вызвана функция:
+Зависит от того, как вызвана функция:
 
-- конструктор - новый возвращаемый объект
-- обычная функция - глобальный объект либо undefined в strict mode
-- методом - объект перед точкой, для который вызывается метод
-- call, apply, bind - что дали первым параметром
+- через `new` (конструктор) — новый создаваемый объект
+- обычный вызов — глобальный объект, либо `undefined` в strict mode
+- как метод — объект перед точкой
+- `call`, `apply`, `bind` — то, что передали первым параметром
+- arrow function — `this` из внешнего окружения
 
-- Reference Type & losing `this`
-	- потерять this можно, когда записываешь метод объекта в отдельную переменную и потом вызываешь функцию без синтаксиса с точкой как func()
-	- . - оператор, который передаёт функции специальный объект с this. Если перед точкой не объект, а (), this может потерятmся
-- Understand difference between function and method
-	- метод - функция ассоциируемая с свойством объекта. Разницы так-то нет, ибо глобальные функции это методы глобального объекта
-- Understand how \`this\` works, realize \`this\` possible issues
-	- . - оператор, который передаёт функции специальный объект с this. Если перед точкой не объект, а (), this может потерятmся
-- Manage `this`
-	- ниже
-- Be able to replace `this` value
-	- bind( this, arg1...)
-- Be able to use `call` and `apply` Function built-in methods
-	- apply(this, \[arg1, arg2\]). Call без массива
-- Know how to bind `this` scope to function
-	- bind( this, arg1...)
-- Binding, binding one function twice
-	- невозможно со встроенным Bind. Только если использовать такую реализацию
+#### Losing this (Reference Type)
 
-```Typescript
+- `this` теряется, когда метод объекта записываешь в отдельную переменную / передаёшь колбэком и вызываешь без точки: `const f = obj.method; f()`
+- `.` — оператор, который возвращает специальный Reference Type (объект + имя свойства), из которого вызов берёт `this`. Если между точкой и вызовом есть что-то ещё (присваивание, `||`), `this` теряется
+
+#### Function vs method
+
+Метод — функция, записанная в свойство объекта. По сути разницы нет: глобальные функции — методы глобального объекта. Разница только в том, какой будет `this`.
+
+#### call, apply, bind
+
+- `func.call(ctx, arg1, arg2)` — вызывает сразу
+- `func.apply(ctx, [arg1, arg2])` — вызывает сразу, аргументы массивом
+- `func.bind(ctx, arg1...)` — возвращает новую функцию с привязанным `this` (и частично аргументами)
+
+#### Binding a function twice
+
+Со встроенным `bind` невозможно: повторный `bind` не меняет `this`, остаётся первый. Только своя реализация, например такая:
+
+```typescript
 Function.prototype.bind = function (context) {
     const targetFunc = this
-    return function (...args) {  
+    return function (...args) {
         const rightContext = this === global ? context : this;
         return targetFunc.apply(rightContext, args);
     };
@@ -139,31 +169,39 @@ Function.prototype.bind = function (context) {
 
 ### ECMAScript Intermediate
 
-- Function default parameters.
-	- ( b, a = 4 )
-- Using spread operator for function arguments.
-	- (a, b, ...rest) Только последним, ругается js
-- Comparing `arguments` and `rest parameters`
-	- `arguments` - array like.
-	- rest не меняются, когда меняют аргументс
-- Array concatenation with spread operator.
-	- \[...arr, ...arr2\]
-- Destructuring assignments for variables and function arguments.
-	- (\[arg1, arg2\]) ({arg1, arg2})
-- \`for..of\` loop (optional).
-	- for (const a of str/Object.keys()/array){}
+#### Default parameters
+
+`(b, a = 4)` — значение по умолчанию, если аргумент `undefined`.
+
+#### Spread and rest
+
+- rest: `(a, b, ...rest)` — только последним параметром, иначе ошибка синтаксиса
+- spread для массивов: `[...arr, ...arr2]`, для вызова: `fn(...args)`
+
+#### arguments vs rest parameters
+
+- `arguments` — array-like (нет методов массива), нет у стрелочных функций
+- rest — настоящий массив; не меняется, когда меняют `arguments`
+
+#### Destructuring
+
+`([arg1, arg2])`, `({ arg1, arg2 })`, со значениями по умолчанию и переименованием `({ a: alias = 1 })`.
+
+#### for of loop
+
+`for (const a of str / Object.keys(obj) / array) {}` — по итерируемым объектам (значения). `for…in` — по ключам объекта, включая унаследованные.
 
 ### Objects Built-in Methods
 
-- Utilizing \`Object.keys\` and \`Object.values\`.
+#### Object.keys, values, entries
 
-	
+`Object.keys(obj)` / `Object.values(obj)` / `Object.entries(obj)` — массивы собственных перечисляемых ключей / значений / пар. `Object.fromEntries(entries)` — обратно в объект.
 
-- Working with static Object methods.
+#### Static Object methods
 
-	freeze, fromEnteries, Enteries, create(proto, descriptors)
+`freeze`, `seal`, `fromEntries`, `entries`, `assign`, `create(proto, descriptors)`, `getPrototypeOf`, `defineProperty`.
 
-- Property flags and descriptors.
+#### Property flags and descriptors
 
 ```typescript
 Object.getOwnPropertyDescriptor(user, 'name');
@@ -182,95 +220,126 @@ let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
 // Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj))
 ```
 
-- Creating iterable objects and using \`Symbol.iterator\` (optional).
+#### Iterables and Symbol.iterator
 
-### ECMAScript Data Types & Expressions
+Объект итерируемый, если у него есть метод `[Symbol.iterator]()`, возвращающий итератор `{ next() { return { value, done } } }`. Так работают `for…of`, spread, деструктуризация.
 
-- Working with Object computed properties.
-	- {\[var + var2\]: value}
+```typescript
+const range = {
+  from: 1, to: 3,
+  *[Symbol.iterator]() { for (let i = this.from; i <= this.to; i++) yield i; },
+};
+[...range]; // [1, 2, 3]
+```
+
+### ECMAScript Data Types and Expressions
+
+#### Computed properties
+
+`{ [var + var2]: value }`
 
 ### Arrays Built-in Methods
 
-map forEach reduce push pop shift unshift flat sort join split slice splice
+`map forEach reduce push pop shift unshift flat sort join split slice splice`
+Мутируют: `push pop shift unshift splice sort reverse fill`. Не мутируют: `map filter slice concat flat` + новые `toSorted toReversed toSpliced with`.
 
-- Copying and modifying arrays.
-	- slice(), concat, \[...\], map, arr\[i\]?
-- Flattening nested arrays
-	- flat(deepth)
+#### Copying and modifying arrays
+
+`slice()`, `concat`, `[...arr]`, `map`, `Array.from` — поверхностная копия. Глубокая — `structuredClone`.
+
+#### Flattening arrays
+
+`arr.flat(depth)`, `arr.flat(Infinity)`.
 
 ### Arrays Iterating, Sorting, Filtering
 
-- Sorting and custom sorting arrays
+#### Custom sorting
 
-```Typescript
-function compare(a, b) { // return a - b или наоборот если работает с числами
-  if (a меньше b по некоторому критерию сортировки) {
-    return -1; // a ставит слева, б справа
-  }
-  if (a больше b по некоторому критерию сортировки) {
-    return 1; // б ставит слева, а справа
-  }
-  // a должно быть равным b
-  return 0;  // оставляет как есть
+```typescript
+function compare(a, b) { // для чисел просто return a - b (или b - a)
+  if (a < b) return -1; // a слева, b справа
+  if (a > b) return 1;  // b слева, a справа
+  return 0;             // оставляет как есть
 }
 ```
 
-## JavaScript in Browser:
+> [!warning] Fix
+> `sort()` без компаратора сортирует как **строки**: `[10, 9, 1].sort()` → `[1, 10, 9]`. И `sort` мутирует массив; без мутации — `toSorted`.
+
+## JavaScript in Browser
 
 ### Global Object Window
 
-- Understanding the Document Object Model (DOM).
+`window` — глобальный объект браузера: содержит DOM (`document`), BOM (`location`, `history`, `navigator`), таймеры, storage. DOM — дерево объектов-узлов, представляющее HTML-документ, через которое JS читает и меняет страницу.
 
 ### Events Basics
 
-- Types of DOM Events.
-	- мыши.
-	- на элементе управления (submit, input, focus, change. blur)
-	- документа (load beforeunload unload DomContentLoaded)
-	- css (transitionend)
-- Working with Mouse and Keyboard Events.
-- Handling Form and Input Events.
-	- submit, input, focus, change
-- Event Listeners.
-	- on(event), addEventListener.
-- Event Phases and their differences.
+#### Types of DOM events
 
-	погружение, фаза цели или захвата (target), всплытие. Остановка всплытия event.stopPropagation
+- мыши (`click`, `mousedown`, `mouseover`…), клавиатуры (`keydown`, `keyup`)
+- на элементах управления (`submit`, `input`, `focus`, `change`, `blur`)
+- документа (`DOMContentLoaded`, `load`, `beforeunload`, `unload`)
+- CSS (`transitionend`, `animationend`)
 
-- Custom events (optional).
+#### Event listeners
 
-	(элемент, на котором вызывает событие).dispatchEvent(new Event((название ивента: string))
+`on<event>` (одно свойство — один обработчик) или `addEventListener(type, handler, { once, passive, capture })` — много обработчиков, снимается через `removeEventListener` с той же ссылкой на функцию.
 
-### Events Propagation / Preventing
+#### Event phases
 
-\- Event propagation cycle.
-	погружение, фаза цели или захвата (target), всплытие. Остановка всплытия
-\- Stopping event propagation.
-	event.stopPropagation
-\- Preventing default browser behavior.
-	event.preventDefault
-\- Event delegation and its pros/cons.
-	1 обработчик на родителя и проверка на нужные элемент вместо кучи слушателей на дочерние элементы. Так же вместо 100 удалений слушателей с детей просто удалить с родителя
+1. **погружение (capturing)** — от `window` вниз к цели
+2. **фаза цели (target)**
+3. **всплытие (bubbling)** — от цели вверх
+
+Остановка всплытия: `event.stopPropagation()`.
+
+> [!warning] Fix
+> В старой заметке «фаза цели или захвата» — это разные фазы: **захват = погружение** (первая фаза), target — вторая. Обработчики по умолчанию срабатывают на всплытии; на погружении — с `{ capture: true }`.
+
+#### Custom events
+
+`element.dispatchEvent(new CustomEvent('my-event', { detail: data, bubbles: true }))`
+
+### Events Propagation and Preventing
+
+Цикл: погружение → цель → всплытие.
+
+#### Stopping propagation
+
+`event.stopPropagation()` — дальше не всплывает; `event.stopImmediatePropagation()` — ещё и другие обработчики на этом же элементе не сработают.
+
+#### Preventing default behaviour
+
+`event.preventDefault()` — отменяет действие браузера (переход по ссылке, отправку формы). Не останавливает всплытие.
+
+#### Event delegation
+
+Один обработчик на родителе и проверка `event.target` (`target.closest('.item')`) вместо кучи слушателей на дочерних элементах. Плюсы: меньше памяти, работает для динамически добавленных элементов, снять один обработчик вместо 100. Минусы: событие должно всплывать (`focus` не всплывает → `focusin`), `stopPropagation` внутри ломает делегирование.
 
 ### Timers
 
-\- Usage of \`setTimeout\` / \`setInterval\`.
-\- Clearing timers with \`clearTimeout\` / \`clearInterval\`.
-	setTimeoutб setTimeout возвращают индетификатор. Их передать в  `clearTimeout` / `clearInterval`
+- `setTimeout(fn, ms)` / `setInterval(fn, ms)` возвращают идентификатор → передать в `clearTimeout` / `clearInterval`
+- задержка минимальная, не точная: колбэк — макрозадача, ждёт пустой call stack
 
-### Web Storage API & Cookies
+### Web Storage API and Cookies
 
-\- Differences between LocalStorage, SessionStorage, and Cookies.
-	на заметку: LocalStorage, SessionStorage безопаснее, так как не передаётся на сервер и хранятся у пользователя
+| | localStorage | sessionStorage | Cookies |
+|---|---|---|---|
+| Жизнь | пока не удалят | пока открыта вкладка | до `Expires` / `Max-Age` (или сессия) |
+| Размер | ~5–10 MB | ~5 MB | ~4 KB |
+| Уходит на сервер | нет | нет | **да**, с каждым запросом |
+| Доступ из JS | да | да | да, если нет `HttpOnly` |
 
-### Date & Time (optional)
+> [!warning] Fix
+> Старая заметка: «LocalStorage, SessionStorage безопаснее, т.к. не передаются на сервер». Наоборот для токенов: localStorage читает **любой** JS на странице → при XSS токен украдут. Cookie с `HttpOnly; Secure; SameSite` из JS не прочитать — это безопаснее для auth-токена (но нужна защита от CSRF).
 
-\- Working with the Date object.
-\- Timezones and Internationalization in JavaScript (Intl).
-	многие методы имеют UTC
+### Date and Time
 
-## Design Patterns
+- `new Date()`, `Date.now()`, многие методы имеют UTC-версии (`getUTCHours`)
+- `Intl.DateTimeFormat`, `Intl.NumberFormat`, `toLocaleString` — форматирование по локали и часовому поясу
 
-Intermediate Knowledge
+## Principles
 
-\- Understanding and applying KISS, DRY, and YAGNI principles.
+### KISS, DRY and YAGNI
+
+Keep It Simple; Don't Repeat Yourself; You Aren't Gonna Need It. Подробно с примерами: [[13-soft-skills-process#🔴 CORE DRY / KISS / YAGNI / SOLID|13 · DRY / KISS / YAGNI / SOLID]].

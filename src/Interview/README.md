@@ -1,7 +1,7 @@
 # Middle (A2) Frontend Interview Prep
 
 Goal: pass the **A1 Junior → A2 Software Engineer** assessment (Primary skill: JavaScript Frontend).
-Interview: **not earlier than Nov 9, 2026**. **Pass 1** = breadth: touch every likely question once. **Pass 2** = depth only where the mock interview shows gaps + optional skills.
+Interview: **Nov 9, 2026 or later** (final days: see the crash plan). **Pass 1** = breadth: touch every likely question once. **Pass 2** = depth only where the mock interview shows gaps + optional skills.
 
 ## How to use: speed rules (breadth first)
 
@@ -12,6 +12,8 @@ Interview: **not earlier than Nov 9, 2026**. **Pass 1** = breadth: touch every l
 3. **Time-box every block** (times in the schedule). When the timer rings, move on and dump leftovers into the **Gaps log**. Unfinished ≠ failed; Pass 2 exists for that.
 4. **Pass 1 skips** every `(+)` item and every **P3** topic (see the priority line at the top of each sub-plan). Hands-on in Pass 1 is only the testing kata and live coding set A.
 5. Last 15 min of a session: **explain-back with Gemini Live** ([10-speaking.md](./10-speaking.md)) on what I just covered.
+
+**Line tags (override P1/P2/P3, set for the last 3 days):** 🔴 **CORE**: mechanism + example + pitfall · 🟡 **SHALLOW**: 1–2 sentences · ⚪ **SKIP**: don't study. AI prompts for each tag: [12-ai-prompts.md](./12-ai-prompts.md).
 
 Legend in sub-plans: **(A2)** = explicitly in the matrix for Middle, **(+)** = my extra (Pass 2). **P1** = asked in almost every interview, **P2** = often asked, **P3** = rare / optional.
 
@@ -30,10 +32,34 @@ Legend in sub-plans: **(A2)** = explicitly in the matrix for Middle, **(+)** = m
 | 09  | [Live coding](./09-live-coding.md)                     | — practice tasks for the coding round                                             | —                                                     |
 | 10  | [Speaking (Gemini Live)](./10-speaking.md)             | — speech practice, mock interviews, STAR stories                                  | —                                                     |
 | 11  | [T-shape: mobile, cloud, hosting, AI](./11-t-shape.md) | JS Cross-Mobile, Cloud, Hosting, Gen AI Assisted Dev                              | Cross-mobile Intermediate, AI Intermediate (optional) |
+| 12  | [AI tutor prompts](./12-ai-prompts.md)                 | — prompts per tag (CORE / SHALLOW)                                                | —                                                     |
+| 13  | [Soft skills & processes](./13-soft-skills-process.md) | Code review, clean code, Agile/Scrum/Kanban, SDLC, estimation, situations, Git flows, AI | SE Processes / Practices Intermediate            |
 
 Old notes from Junior prep (reuse, don't rewrite): [Core js 1](../../Evernote/Core%20js%201/Core%20js%201.md) · [Core js 2](../../Evernote/Core%20js%202/Core%20js%202.md) (TS, patterns, SOLID, Agile, testing, HTTP, polyfills) · [Programming](../../Evernote/Programming/Programming.md) (Node, React, Redux) · [SQL](../sql/sql.md) · [Node](../nodeJS/nodejs.md)
 
-## Pass 1: breadth (Tue Oct 27 – Sun Nov 1)
+## Final 2 days: crash plan (Nov 9–10)
+
+Only 🔴 CORE lines that are still unticked + soft skills. Blocks are in **order of payoff**: if time runs out, cut from the bottom. Each block ends with 10 min of saying the answers aloud.
+
+**Day 1 (Nov 10)**
+1. **Soft skills & processes** [13](./13-soft-skills-process.md): read, fill `<…>` with my project, say every 🔴 aloud (2h). *Asked in every interview, cheapest points.*
+2. **Testing** 🔴 left in [04](./04-testing.md): key questions only + 1 small test in my stack (2h)
+3. **Engineering** 🔴 left in [08](./08-engineering.md): patterns with frontend examples, CI/CD, merge vs rebase (1h)
+4. **Stories** [10](./10-speaking.md): project pitch + 3 STAR stories, said aloud twice (1h)
+
+**Day 2 (Nov 11)**
+1. **Web** 🔴 left in [06](./06-web-platform.md): URL → page, caching, cookies vs JWT, CORS, XSS/CSRF (1.5h)
+2. **CSS/HTML** 🔴 left in [05](./05-html-css.md): specificity, stacking context, flex vs grid, semantics (1h)
+3. **Live coding** 🔴 in [09](./09-live-coding.md): debounce, `Promise.all`, a polyfill, predict-output, talking aloud (1.5h)
+4. Leftover 🔴 in 01 / 03 / 07 (1h)
+5. **Mock interview** with Gemini, then re-say only the weak answers (1h)
+
+**Interview day:** no new topics. 30 min: re-read the self-check lists in 13 and the key questions, project pitch once, sleep well.
+
+<details>
+<summary>Old schedule (Pass 1 / Pass 2, Oct 27 – Nov 8)</summary>
+
+### Pass 1: breadth (Tue Oct 27 – Sun Nov 1)
 
 Workdays ~3h, days off ~7h. **≈ 34h.** Mon 26 done: JS language core (most of it).
 
@@ -46,7 +72,7 @@ Workdays ~3h, days off ~7h. **≈ 34h.** Mon 26 done: JS language core (most of 
 | **Sat 31** | Web: HTTP, caching, cookies/JWT, CORS, TLS (1.5h) · Security: XSS/CSRF/CSP (1h) · Rendering strategies (45m) · Node key questions (1h) · Engineering: patterns, SOLID, Git, CI/CD, Agile/estimation (2h) · Gemini (45m) | 06, 07, 08 |
 | **Sun 1** | Engineering rest: Docker, deploy strategies, algorithms, SQL, crypto (1.5h) · Live coding set A, 4 tasks (2h) · Project pitch + 3 STAR stories (1h) · **Mock interview #1** (1h) · sort the Gaps log by priority (1h) | 08, 09, 10 |
 
-## Pass 2: gaps + depth + optional (Mon Nov 2 – Sun Nov 8)
+### Pass 2: gaps + depth + optional (Mon Nov 2 – Sun Nov 8)
 
 3 workdays ~3h + **2 extra days off** ~7h + weekend. **≈ 30h.** Put the 2 days off where the heavy blocks are (e.g. Thu–Fri), shift the rest.
 
@@ -60,11 +86,8 @@ Workdays ~3h, days off ~7h. **≈ 34h.** Mon 26 done: JS language core (most of 
 | **Sat 7** | Fix gaps from mock #2 · Pass-2 depth topics (React internals, Node streams, TS compiler) only if P1 is solid | Gaps log |
 | **Sun 8** | Light: re-answer all "Key questions" aloud, rehearse pitch + STAR, rest | all |
 
-## After Nov 9: maintenance (30–45 min/day until the interview)
 
-- 1 random sub-plan → answer its "Key questions" aloud with Gemini (15m)
-- 1 live coding task (15–20m)
-- 1 item from the Gaps log (10m)
+</details>
 
 ## Progress tracker
 
